@@ -1,94 +1,73 @@
 ---
-// Hero.astro - Dark navy luxury hero with subtle ambient sunburst, parallax layers, and interactive floating quote card
+// Hero.astro - Full-screen hero with solar engineer & rooftop panels background image, overlaid text & floating quote card
 ---
 
-<section class="relative min-h-[92vh] pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-[#0F2540] text-white flex items-center">
-  <!-- Parallax Background Container -->
-  <div id="hero-parallax-bg" class="absolute inset-0 pointer-events-none z-0">
-    <!-- Unsplash Luxury House with Solar Panels Dusk -->
+<section class="relative min-h-screen pt-28 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-[#0F2540] text-white flex items-center">
+  <!-- Full Screen Background Image: Engineer standing with Solar Panels -->
+  <div class="absolute inset-0 z-0">
     <img
-      src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=1800&q=80"
-      alt="Luxury home equipped with high efficiency solar panels at golden dusk"
-      class="w-full h-full object-cover object-center opacity-30 mix-blend-luminosity scale-105"
+      src="/hero-solar-engineer.jpg"
+      alt="Wave Power Solar engineer standing proudly on rooftop beside solar panels overlooking Varanasi city"
+      class="w-full h-full object-cover object-[60%_center] md:object-center filter brightness-[0.85] contrast-[1.05]"
       loading="eager"
       fetchpriority="high"
     />
-    <!-- Deep Navy to Warm Radial Gradient Overlay -->
-    <div class="absolute inset-0 bg-gradient-to-b from-[#0F2540]/80 via-[#0F2540]/90 to-[#0F2540]"></div>
-    <div class="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-radial from-[#EA6B1F]/20 via-[#3E7CC9]/10 to-transparent blur-3xl"></div>
-    <div class="absolute top-1/2 -right-40 w-[500px] h-[500px] rounded-full bg-radial from-[#3E7CC9]/20 to-transparent blur-3xl"></div>
-  </div>
-
-  <!-- Ambient rotating Sun-ray SVG behind headline (140s slow rotation, low opacity) -->
-  <div class="absolute top-12 left-1/4 -translate-x-1/2 w-[720px] h-[720px] pointer-events-none z-0 opacity-15 select-none animate-spin-slow">
-    <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-[#EA6B1F]">
-      <circle cx="250" cy="250" r="110" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 8" />
-      <circle cx="250" cy="250" r="180" stroke="currentColor" stroke-width="1" stroke-dasharray="6 12" />
-      <g stroke="currentColor" stroke-width="1.5" opacity="0.8">
-        <line x1="250" y1="20" x2="250" y2="70" />
-        <line x1="250" y1="430" x2="250" y2="480" />
-        <line x1="20" y1="250" x2="70" y2="250" />
-        <line x1="430" y1="250" x2="480" y2="250" />
-        <line x1="87" y1="87" x2="123" y2="123" />
-        <line x1="377" y1="377" x2="413" y2="413" />
-        <line x1="87" y1="413" x2="123" y2="377" />
-        <line x1="377" y1="123" x2="413" y2="87" />
-        <!-- Additional fine radial rays -->
-        <line x1="250" y1="100" x2="250" y2="125" stroke-width="2"/>
-        <line x1="250" y1="375" x2="250" y2="400" stroke-width="2"/>
-        <line x1="100" y1="250" x2="125" y2="250" stroke-width="2"/>
-        <line x1="375" y1="250" x2="400" y2="250" stroke-width="2"/>
-      </g>
-    </svg>
+    <!-- Directional Cinematic Overlays for Text Legibility while preserving the Engineer & Panels -->
+    <!-- Left-to-right dark scrim so headline & text are razor-sharp -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0F2540]/95 via-[#0F2540]/85 md:via-[#0F2540]/70 to-[#0F2540]/30 pointer-events-none"></div>
+    
+    <!-- Top & bottom gentle gradient vignettes for seamless navbar & chapter transition -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0F2540]/80 via-transparent to-[#0F2540] pointer-events-none"></div>
+    <div class="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#0F2540] to-transparent pointer-events-none"></div>
   </div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
       
-      <!-- Left Column: Story Headline & Trust Badges -->
+      <!-- Left Column: Story Headline & Trust Badges (directly on top of the image) -->
       <div class="lg:col-span-7 space-y-6">
         <!-- Location Pill -->
-        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 backdrop-blur-sm shadow-sm">
-          <span class="w-2 h-2 rounded-full bg-[#EA6B1F]"></span>
-          <span class="font-medium">Varanasi's Trusted Rooftop Solar Partner</span>
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#0F2540]/80 border border-white/20 text-xs sm:text-sm text-white backdrop-blur-md shadow-lg">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#EA6B1F] animate-pulse"></span>
+          <span class="font-medium">Varanasi's Leading Rooftop Solar Partner</span>
           <span class="text-white/40">•</span>
-          <span class="text-[#F98A3D] font-medium">PM Surya Ghar Authorized</span>
+          <span class="text-[#F98A3D] font-semibold">PM Surya Ghar Approved</span>
         </div>
 
-        <!-- Main Narrative Headline -->
-        <h1 class="text-4xl sm:text-5xl xl:text-6xl font-serif font-medium leading-[1.12] tracking-tight text-white">
-          Stop paying for electricity when the sun shines on your roof <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#EA6B1F] to-[#F98A3D] italic">every single day.</span>
+        <!-- Main Narrative Headline with drop shadow for legibility -->
+        <h1 class="text-4xl sm:text-5xl xl:text-6xl font-serif font-medium leading-[1.12] tracking-tight text-white drop-shadow-md">
+          Stop paying for electricity when the sun shines on your roof <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#EA6B1F] via-[#F98A3D] to-orange-300 italic">every single day.</span>
         </h1>
 
         <!-- Lead Copy: Plain, Neighbourly English -->
-        <p class="text-lg sm:text-xl text-white/80 leading-relaxed max-w-2xl font-light">
-          Your power bill climbs higher every summer in Varanasi and Purvanchal. With Wave Power Solar, you generate your own clean power, claim up to <strong class="font-semibold text-white">₹78,000 in direct government subsidy</strong>, and bring your electricity bills close to zero.
+        <p class="text-lg sm:text-xl text-white/90 leading-relaxed max-w-2xl font-light drop-shadow">
+          Your power bill climbs higher every summer across Varanasi and Purvanchal. With Wave Power Solar, you generate your own clean power, claim up to <strong class="font-semibold text-white underline decoration-[#EA6B1F] decoration-2 underline-offset-4">₹78,000 in direct government subsidy</strong>, and bring your electricity bills close to zero.
         </p>
 
-        <!-- Key quick proof points -->
-        <div class="grid grid-cols-3 gap-4 pt-4 border-t border-white/10 max-w-xl">
+        <!-- Key quick proof points with glassmorphic backdrop -->
+        <div class="grid grid-cols-3 gap-3 sm:gap-4 p-4 rounded-2xl bg-[#0F2540]/60 backdrop-blur-md border border-white/15 max-w-xl shadow-xl">
           <div>
-            <div class="text-2xl sm:text-3xl font-serif font-semibold text-[#EA6B1F]">₹0</div>
-            <div class="text-xs sm:text-sm text-white/70 mt-0.5">Electricity bill target for most homes</div>
+            <div class="text-2xl sm:text-3xl font-serif font-bold text-[#EA6B1F]">₹0</div>
+            <div class="text-xs sm:text-sm text-white/80 mt-0.5">Target monthly electricity bill</div>
           </div>
           <div>
-            <div class="text-2xl sm:text-3xl font-serif font-semibold text-white">₹78,000</div>
-            <div class="text-xs sm:text-sm text-white/70 mt-0.5">Direct PM Surya Ghar subsidy</div>
+            <div class="text-2xl sm:text-3xl font-serif font-bold text-white">₹78,000</div>
+            <div class="text-xs sm:text-sm text-white/80 mt-0.5">Direct PM Surya Ghar subsidy</div>
           </div>
           <div>
-            <div class="text-2xl sm:text-3xl font-serif font-semibold text-[#3E7CC9]">25 Yrs</div>
-            <div class="text-xs sm:text-sm text-white/70 mt-0.5">Performance guarantee on panels</div>
+            <div class="text-2xl sm:text-3xl font-serif font-bold text-[#3E7CC9]">25 Yrs</div>
+            <div class="text-xs sm:text-sm text-white/80 mt-0.5">Tier-1 panel guarantee</div>
           </div>
         </div>
 
         <!-- Social Proof snippet -->
-        <div class="flex items-center gap-4 pt-2">
+        <div class="flex items-center gap-4 pt-1">
           <div class="flex -space-x-2 overflow-hidden">
             <img class="inline-block h-9 w-9 rounded-full ring-2 ring-[#0F2540] object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Customer avatar" />
             <img class="inline-block h-9 w-9 rounded-full ring-2 ring-[#0F2540] object-cover" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80" alt="Customer avatar" />
             <img class="inline-block h-9 w-9 rounded-full ring-2 ring-[#0F2540] object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Customer avatar" />
           </div>
-          <div class="text-xs text-white/80">
+          <div class="text-xs sm:text-sm text-white/90 drop-shadow">
             <span class="text-[#F98A3D] font-bold">★★★★★ 4.8/5</span> from 5,000+ happy roofs across Varanasi, Mirzapur & Prayagraj
           </div>
         </div>
@@ -96,7 +75,7 @@
 
       <!-- Right Column: Floating White Quote & Savings Estimator Card -->
       <div class="lg:col-span-5" id="quote-form">
-        <div class="relative bg-white text-[#12233C] rounded-2xl p-6 sm:p-8 shadow-2xl shadow-black/40 border border-white/60">
+        <div class="relative bg-white/95 backdrop-blur-md text-[#12233C] rounded-2xl p-6 sm:p-8 shadow-2xl shadow-black/50 border border-white/80">
           
           <!-- Badge -->
           <div class="flex items-center justify-between pb-4 border-b border-[#E4E2DA]">
@@ -163,7 +142,7 @@
                   type="text"
                   required
                   placeholder="e.g. Ramesh Kumar"
-                  class="w-full px-3.5 py-2.5 rounded-lg border border-[#E4E2DA] text-sm focus:border-[#EA6B1F] focus:ring-1 focus:ring-[#EA6B1F] transition-colors"
+                  class="w-full px-3.5 py-2.5 rounded-lg border border-[#E4E2DA] text-sm focus:border-[#EA6B1F] focus:ring-1 focus:ring-[#EA6B1F] transition-colors bg-white"
                 />
               </div>
 
@@ -176,7 +155,7 @@
                     required
                     pattern="[0-9]{10}"
                     placeholder="10-digit number"
-                    class="w-full px-3.5 py-2.5 rounded-lg border border-[#E4E2DA] text-sm focus:border-[#EA6B1F] focus:ring-1 focus:ring-[#EA6B1F] transition-colors"
+                    class="w-full px-3.5 py-2.5 rounded-lg border border-[#E4E2DA] text-sm focus:border-[#EA6B1F] focus:ring-1 focus:ring-[#EA6B1F] transition-colors bg-white"
                   />
                 </div>
                 <div>
@@ -226,26 +205,6 @@
 </section>
 
 <script>
-  // Parallax Scroll Effect
-  const parallaxBg = document.getElementById('hero-parallax-bg');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (parallaxBg && !prefersReducedMotion) {
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const scrollY = window.scrollY;
-          if (scrollY < 900) {
-            parallaxBg.style.transform = `translateY(${scrollY * 0.22}px)`;
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }, { passive: true });
-  }
-
   // Interactive Quote Calculator
   const billSlider = document.getElementById('monthly-bill-slider') as HTMLInputElement | null;
   const billDisplay = document.getElementById('bill-display');
