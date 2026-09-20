@@ -15,12 +15,30 @@
 
     <!-- Desktop Navigation Links -->
     <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-white/80">
-      <a href="#problem" class="hover:text-[#EA6B1F] transition-colors">The Problem</a>
-      <a href="#idea" class="hover:text-[#EA6B1F] transition-colors">The Idea</a>
-      <a href="#process" class="hover:text-[#EA6B1F] transition-colors">How It Works</a>
-      <a href="#results" class="hover:text-[#EA6B1F] transition-colors">Savings & Subsidy</a>
-      <a href="#stories" class="hover:text-[#EA6B1F] transition-colors">Local Stories</a>
-      <a href="#coverage" class="hover:text-[#EA6B1F] transition-colors">Varanasi & Beyond</a>
+      <a href="#problem" class="relative py-1 hover:text-[#EA6B1F] transition-colors group">
+        <span>The Problem</span>
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#EA6B1F] transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="#idea" class="relative py-1 hover:text-[#EA6B1F] transition-colors group">
+        <span>The Idea</span>
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#EA6B1F] transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="#process" class="relative py-1 hover:text-[#EA6B1F] transition-colors group">
+        <span>How It Works</span>
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#EA6B1F] transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="#results" class="relative py-1 hover:text-[#EA6B1F] transition-colors group">
+        <span>Savings & Subsidy</span>
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#EA6B1F] transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="#stories" class="relative py-1 hover:text-[#EA6B1F] transition-colors group">
+        <span>Local Stories</span>
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#EA6B1F] transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="#coverage" class="relative py-1 hover:text-[#EA6B1F] transition-colors group">
+        <span>Varanasi & Beyond</span>
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#EA6B1F] transition-all duration-300 group-hover:w-full"></span>
+      </a>
     </nav>
 
     <!-- Call hotline + Quote CTA -->
@@ -38,7 +56,7 @@
 
       <a
         href="#quote-form"
-        class="inline-flex items-center justify-center px-4 py-2.5 rounded-lg text-sm font-semibold text-white bg-[#EA6B1F] hover:bg-[#F98A3D] shadow-lg shadow-[#EA6B1F]/25 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
+        class="btn-shimmer inline-flex items-center justify-center px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-[#EA6B1F] hover:bg-[#F98A3D] shadow-lg shadow-[#EA6B1F]/25 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
       >
         Free Roof Visit
       </a>
