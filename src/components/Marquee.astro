@@ -1,0 +1,36 @@
+---
+// Marquee.astro - Vibrant orange ribbon looping seamlessly under the hero
+const claims = [
+  "⚡ Save Up to 90% On Electricity Bills",
+  "☀️ PM Surya Ghar Subsidy up to ₹78,000 Direct",
+  "📍 Varanasi • Mirzapur • Chandauli • Bhadohi • Jaunpur • Ghazipur • Prayagraj",
+  "🛡️ 25-Year Tier-1 Panel Warranty",
+  "🏡 5,000+ Verified Rooftop Installations",
+  "⏱️ Fast-Track Discom Net-Metering Assistance",
+  "💳 Easy Zero-Downpayment Bank EMI Available"
+];
+---
+
+<div class="relative z-20 bg-[#EA6B1F] text-white py-3.5 overflow-hidden border-y border-orange-400/30 shadow-md">
+  <div class="flex select-none">
+    <!-- First instance -->
+    <div class="animate-marquee flex items-center space-x-10 text-xs sm:text-sm font-semibold tracking-wide uppercase whitespace-nowrap">
+      {claims.map((claim) => (
+        <span class="inline-flex items-center gap-3">
+          <span>{claim}</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-white/60"></span>
+        </span>
+      ))}
+    </div>
+
+    <!-- Duplicate instance for seamless infinite CSS loop -->
+    <div class="animate-marquee flex items-center space-x-10 text-xs sm:text-sm font-semibold tracking-wide uppercase whitespace-nowrap" aria-hidden="true">
+      {claims.map((claim) => (
+        <span class="inline-flex items-center gap-3">
+          <span>{claim}</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-white/60"></span>
+        </span>
+      ))}
+    </div>
+  </div>
+</div>

@@ -1,11 +1,41 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// index.astro - Wave Power Solar Storytelling Landing Page
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Marquee from '../components/Marquee.astro';
+import ChapterProblem from '../components/ChapterProblem.astro';
+import ChapterIdea from '../components/ChapterIdea.astro';
+import ChapterProcess from '../components/ChapterProcess.astro';
+import ChapterResult from '../components/ChapterResult.astro';
+import ChapterStories from '../components/ChapterStories.astro';
+import ChapterClosing from '../components/ChapterClosing.astro';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<Base
+  title="Wave Power Solar | Varanasi Rooftop Solar & PM Surya Ghar Subsidy"
+  description="Stop paying soaring electricity bills in Varanasi, Mirzapur & Prayagraj. Get direct ₹78,000 PM Surya Ghar subsidy, Tier-1 solar panels, and 25-year performance warranty with Wave Power Solar."
+>
+  <!-- Hero Section with Interactive Floating Quote Card -->
+  <Hero />
+
+  <!-- Infinite Looping Sticky Trust Marquee -->
+  <Marquee />
+
+  <!-- Chapter 1: The Problem (Rising bills every summer) -->
+  <ChapterProblem />
+
+  <!-- Chapter 2: The Idea (The sun was here the whole time - dawn gradient pivot) -->
+  <ChapterIdea />
+
+  <!-- Chapter 3: The Process (4-step sticky-scroll showcase) -->
+  <ChapterProcess />
+
+  <!-- Chapter 4: The Result (Milestones & Home vs Business paths) -->
+  <ChapterResult />
+
+  <!-- Chapter 5: Their Stories (Purvanchal customer stories & before/after bills) -->
+  <ChapterStories />
+
+  <!-- Chapter 6: Your Turn (District service matrix & booking CTA) -->
+  <ChapterClosing />
+</Base>

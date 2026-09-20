@@ -1,0 +1,103 @@
+---
+// ChapterStories.astro - Chapter 5: Local Purvanchal Stories
+// 3 Authentic, relatable testimonials from Varanasi, Bhadohi, and Prayagraj
+const stories = [
+  {
+    name: "Rajesh Kumar Mishra",
+    area: "Sigra, Varanasi",
+    system: "5 kW On-Grid System",
+    beforeBill: "₹8,400 / mo",
+    afterBill: "₹240 / mo (Grid fixed charges)",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80",
+    quote: "Every summer my family fought over keeping the AC on because the electricity bill would cross ₹8,000. Wave Power Solar surveyed our roof in Sigra, elevated the structure so our terrace garden was untouched, and handled the UPPCL net meter without us making a single trip to the office. Last month my bill was literally ₹240."
+  },
+  {
+    name: "Sunita & Dr. V.K. Srivastava",
+    area: "Civil Lines, Prayagraj",
+    system: "3 kW Residential System",
+    beforeBill: "₹5,200 / mo",
+    afterBill: "₹180 / mo",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80",
+    quote: "We were skeptical about government subsidies actually reaching our bank account. The Wave Power team completed the PM Surya Ghar registration for us, and exactly 26 days after net-meter commissioning, ₹78,000 was credited directly to our SBI account. Professional, polite engineers who respect your house."
+  },
+  {
+    name: "Mohammad Irfan Ansari",
+    area: "Maryadpatti, Bhadohi",
+    system: "25 kW Commercial Workshop",
+    beforeBill: "₹38,000 / mo + Diesel generator costs",
+    afterBill: "₹6,800 / mo (75% diesel reduction)",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
+    quote: "In Bhadohi, daytime power cuts meant our weaving looms stopped unless we burned expensive diesel in generators. Wave Power designed a 25 kW rooftop system for our workshop roof. It runs our finishing machines and lighting all day. We also claimed 40% tax depreciation this year."
+  }
+];
+---
+
+<section id="stories" class="py-24 md:py-32 bg-[#F7F5F0] text-[#12233C] relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="max-w-3xl mb-16 reveal-fade">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100 text-xs font-bold uppercase tracking-widest text-[#EA6B1F] mb-4">
+        <span>Chapter 05</span>
+        <span>•</span>
+        <span>Word on the Street</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-[#0F2540] leading-tight">
+        Don’t take our word for it. <br class="hidden sm:block" />
+        Ask your neighbours.
+      </h2>
+      <p class="text-base sm:text-lg text-[#5B6B7F] mt-4 leading-relaxed">
+        From old Varanasi mohallas to the manufacturing clusters of Bhadohi and wide residential avenues of Prayagraj, here is what switching to Wave Power Solar looks like in reality.
+      </p>
+    </div>
+
+    <!-- 3 Stories Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {stories.map((story) => (
+        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-[#E4E2DA] flex flex-col justify-between hover:shadow-xl transition-shadow reveal-fade">
+          <div class="space-y-4">
+            <!-- 5 Gold Stars -->
+            <div class="flex text-[#EA6B1F] text-base">
+              ★★★★★
+            </div>
+
+            <!-- Quote text -->
+            <p class="text-sm sm:text-base text-[#12233C] leading-relaxed italic">
+              "{story.quote}"
+            </p>
+
+            <!-- Before / After Pill Comparison -->
+            <div class="p-3.5 rounded-xl bg-[#F7F5F0] border border-[#E4E2DA] space-y-1.5 text-xs">
+              <div class="flex justify-between items-center">
+                <span class="text-[#5B6B7F]">Summer Bill Before:</span>
+                <span class="font-semibold text-red-600 line-through">{story.beforeBill}</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-[#0F2540] font-medium">Electricity Bill Now:</span>
+                <span class="font-bold text-emerald-700">{story.afterBill}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Customer Identity footer -->
+          <div class="pt-6 mt-6 border-t border-[#E4E2DA] flex items-center gap-3.5">
+            <img
+              src={story.image}
+              alt={story.name}
+              class="w-12 h-12 rounded-full object-cover ring-2 ring-[#EA6B1F]/30"
+              loading="lazy"
+            />
+            <div>
+              <h4 class="text-sm font-bold text-[#0F2540]">{story.name}</h4>
+              <p class="text-xs text-[#5B6B7F]">{story.area}</p>
+              <span class="inline-block text-[11px] font-medium text-[#3E7CC9] bg-blue-50 px-2 py-0.5 rounded mt-1">
+                {story.system}
+              </span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,223 @@
+---
+// ChapterProcess.astro - Chapter 3: The 4-Step Process
+// Sticky-scroll section: On desktop, images pin with position: sticky top-28 while text scrolls past.
+// Sides alternate left/right per step. Falls back cleanly on mobile.
+---
+
+<section id="process" class="py-24 md:py-32 bg-[#F7F5F0] text-[#12233C] relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header -->
+    <div class="max-w-3xl mb-16 md:mb-24 reveal-fade">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100 text-xs font-bold uppercase tracking-widest text-[#EA6B1F] mb-4">
+        <span>Chapter 03</span>
+        <span>•</span>
+        <span>How We Do It</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-[#0F2540] leading-tight">
+        Four honest steps. Zero headache for you.
+      </h2>
+      <p class="text-base sm:text-lg text-[#5B6B7F] mt-4 leading-relaxed">
+        Most solar companies confuse you with poly vs mono wattage jargon and confusing subsidy forms. We keep it simple: we handle everything from Varanasi Discom net-meter approvals to your 25-year warranty.
+      </p>
+    </div>
+
+    <!-- 4 Steps Container -->
+    <div class="space-y-24 md:space-y-36">
+
+      <!-- STEP 1: Talk to Us (Text Left, Image Right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+        <!-- Text Column -->
+        <div class="lg:col-span-6 space-y-6 pt-4 order-2 lg:order-1 reveal-fade">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-full bg-[#EA6B1F] text-white flex items-center justify-center font-serif font-bold text-lg shadow-md">
+              01
+            </span>
+            <span class="text-xs uppercase tracking-wider font-bold text-[#EA6B1F]">Step One • 10 Minutes</span>
+          </div>
+          <h3 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#0F2540] leading-tight">
+            Talk to Us. No Pushy Salesmen, Ever.
+          </h3>
+          <p class="text-base sm:text-lg text-[#5B6B7F] leading-relaxed">
+            Give us a call or send us a photo of your latest Purvanchal Vidyut Vitran Nigam electricity bill on WhatsApp. 
+          </p>
+          <p class="text-base sm:text-lg text-[#5B6B7F] leading-relaxed">
+            We calculate your exact sanctioned load, how many units of electricity your family uses in peak summer, and tell you upfront if solar makes financial sense for your house. If your roof doesn’t get enough sunlight, we’ll tell you directly.
+          </p>
+          <ul class="space-y-2.5 pt-2 text-sm text-[#0F2540] font-medium">
+            <li class="flex items-center gap-2.5">
+              <span class="text-emerald-600 font-bold">✓</span> Free bill analysis over phone or WhatsApp
+            </li>
+            <li class="flex items-center gap-2.5">
+              <span class="text-emerald-600 font-bold">✓</span> Clear subsidy estimate before any commitment
+            </li>
+          </ul>
+        </div>
+        <!-- Sticky Image Column (Desktop Pins) -->
+        <div class="lg:col-span-6 order-1 lg:order-2 lg:sticky lg:top-28 reveal-fade">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-[#E4E2DA] bg-white aspect-[4/3]">
+            <img
+              src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1000&q=80"
+              alt="Friendly conversation discussing rooftop solar benefits"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm p-3.5 rounded-xl border border-white/60 shadow-lg flex items-center justify-between">
+              <div>
+                <span class="text-xs uppercase text-[#5B6B7F] block font-semibold">Consultation</span>
+                <span class="text-sm font-bold text-[#0F2540]">100% Free & Transparent</span>
+              </div>
+              <span class="px-2.5 py-1 rounded bg-orange-100 text-[#EA6B1F] text-xs font-bold">No Obligation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: We Visit Your Home (Image Left, Text Right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+        <!-- Sticky Image Column (Desktop Pins Left) -->
+        <div class="lg:col-span-6 lg:sticky lg:top-28 reveal-fade">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-[#E4E2DA] bg-white aspect-[4/3]">
+            <img
+              src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80"
+              alt="Solar engineer surveying terrace and testing shadow patterns"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm p-3.5 rounded-xl border border-white/60 shadow-lg flex items-center justify-between">
+              <div>
+                <span class="text-xs uppercase text-[#5B6B7F] block font-semibold">Terrace Analysis</span>
+                <span class="text-sm font-bold text-[#0F2540]">3D Shadow Simulation</span>
+              </div>
+              <span class="px-2.5 py-1 rounded bg-blue-100 text-[#3E7CC9] text-xs font-bold">365-Day Sun Path</span>
+            </div>
+          </div>
+        </div>
+        <!-- Text Column Right -->
+        <div class="lg:col-span-6 space-y-6 pt-4 reveal-fade">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-full bg-[#3E7CC9] text-white flex items-center justify-center font-serif font-bold text-lg shadow-md">
+              02
+            </span>
+            <span class="text-xs uppercase tracking-wider font-bold text-[#3E7CC9]">Step Two • At Your Doorstep</span>
+          </div>
+          <h3 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#0F2540] leading-tight">
+            We Visit Your Home. We Measure Twice.
+          </h3>
+          <p class="text-base sm:text-lg text-[#5B6B7F] leading-relaxed">
+            Our certified solar engineer visits your roof in Varanasi, Mirzapur, or Chandauli. We use 3D shadow mapping to see where nearby water tanks, stairwell towers, or neem trees cast shade at 9 AM, 1 PM, and 4 PM.
+          </p>
+          <p class="text-base sm:text-lg text-[#5B6B7F] leading-relaxed">
+            We inspect your roof's slab strength, test the earthing, and design an elevated structure if you still want to dry clothes or sit on your terrace during winter evenings. You get a customized 3D design preview before a single bolt is drilled.
+          </p>
+          <ul class="space-y-2.5 pt-2 text-sm text-[#0F2540] font-medium">
+            <li class="flex items-center gap-2.5">
+              <span class="text-emerald-600 font-bold">✓</span> Heavy-duty galvanized structure (rust-proof in monsoon)
+            </li>
+            <li class="flex items-center gap-2.5">
+              <span class="text-emerald-600 font-bold">✓</span> Full usable terrace space preservation options
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- STEP 3: We Install (Text Left, Image Right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+        <!-- Text Column Left -->
+        <div class="lg:col-span-6 space-y-6 pt-4 order-2 lg:order-1 reveal-fade">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-full bg-[#EA6B1F] text-white flex items-center justify-center font-serif font-bold text-lg shadow-md">
+              03
+            </span>
+            <span class="text-xs uppercase tracking-wider font-bold text-[#EA6B1F]">Step Three • Seamless Execution</span>
+          </div>
+          <h3 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#0F2540] leading-tight">
+            We Install. Clean, Fast, and Safe.
+          </h3>
+          <p class="text-base sm:text-lg text-[#5B6B7F] leading-relaxed">
+            Our in-house installation crew handles everything in 48 hours. We only mount Tier-1 bifacial and mono-PERC panels that generate power from both sides, paired with European or top-grade micro-inverters.
+          </p>
+          <p class="text-base sm:text-lg text-[#5B6B7F] leading-relaxed">
+            More importantly, we coordinate with the local electricity discom (UPPCL) for your bi-directional net meter installation, paperwork, and inspection. No running around government offices.
+          </p>
+          <ul class="space-y-2.5 pt-2 text-sm text-[#0F2540] font-medium">
+            <li class="flex items-center gap-2.5">
+              <span class="text-emerald-600 font-bold">✓</span> Done in 2 days with zero property damage guarantee
+            </li>
+            <li class="flex items-center gap-2.5">
+              <span class="text-emerald-600 font-bold">✓</span> UPPCL Net-metering liaison and subsidy paperwork covered
+            </li>
+          </ul>
+        </div>
+        <!-- Sticky Image Column Right -->
+        <div class="lg:col-span-6 order-1 lg:order-2 lg:sticky lg:top-28 reveal-fade">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-[#E4E2DA] bg-white aspect-[4/3]">
+            <img
+              src="https://images.unsplash.com/photo-1624397640148-949b1732bb0a?auto=format&fit=crop&w=1000&q=80"
+              alt="Trained solar technician installing Tier-1 solar panels on rooftop"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm p-3.5 rounded-xl border border-white/60 shadow-lg flex items-center justify-between">
+              <div>
+                <span class="text-xs uppercase text-[#5B6B7F] block font-semibold">Tier-1 Hardware</span>
+                <span class="text-sm font-bold text-[#0F2540]">Mono PERC / Bifacial</span>
+              </div>
+              <span class="px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 text-xs font-bold">48-Hr Setup</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: We Stay With You (Image Left, Text Right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+        <!-- Sticky Image Column Left -->
+        <div class="lg:col-span-6 lg:sticky lg:top-28 reveal-fade">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-[#E4E2DA] bg-white aspect-[4/3]">
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80"
+              alt="Mobile app showing daily solar unit generation and savings statistics"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm p-3.5 rounded-xl border border-white/60 shadow-lg flex items-center justify-between">
+              <div>
+                <span class="text-xs uppercase text-[#5B6B7F] block font-semibold">Live Monitoring</span>
+                <span class="text-sm font-bold text-[#0F2540]">Track Units & Savings</span>
+              </div>
+              <span class="px-2.5 py-1 rounded bg-purple-100 text-purple-800 text-xs font-bold">25 Yrs Care</span>
+            </div>
+          </div>
+        </div>
+        <!-- Text Column Right -->
+        <div class="lg:col-span-6 space-y-6 pt-4 reveal-fade">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-full bg-[#173257] text-white flex items-center justify-center font-serif font-bold text-lg shadow-md">
+              04
+            </span>
+            <span class="text-xs uppercase tracking-wider font-bold text-[#3E7CC9]">Step Four • Lifetime Partnership</span>
+          </div>
+          <h3 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#0F2540] leading-tight">
+            We Stay With You. 25 Years of Clear Skies.
+          </h3>
+          <p class="text-base sm:text-lg text-[#5B6B7F] leading-relaxed">
+            Most installers vanish once the check clears. We are headquartered right here in Varanasi. You get a mobile app showing live generation minute by minute, direct alerts if a dust storm reduces panel efficiency, and scheduled maintenance visits.
+          </p>
+          <p class="text-base sm:text-lg text-[#5B6B7F] leading-relaxed">
+            If anything dips below 85% efficiency over 25 years, our service team handles warranty replacements directly at your home.
+          </p>
+          <ul class="space-y-2.5 pt-2 text-sm text-[#0F2540] font-medium">
+            <li class="flex items-center gap-2.5">
+              <span class="text-emerald-600 font-bold">✓</span> 25-year panel performance guarantee
+            </li>
+            <li class="flex items-center gap-2.5">
+              <span class="text-emerald-600 font-bold">✓</span> Dedicated local Varanasi field technicians
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

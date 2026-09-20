@@ -1,0 +1,79 @@
+---
+// ChapterIdea.astro - Chapter 2: The Idea (Pivot moment: dark-to-sunrise dawn gradient)
+---
+
+<section id="idea" class="relative py-24 md:py-36 text-white overflow-hidden bg-gradient-to-b from-[#0F2540] via-[#1E1B38] to-[#EA6B1F]">
+  <!-- Golden Sunrise Horizon Layer -->
+  <div class="absolute inset-0 pointer-events-none z-0">
+    <img
+      src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=80"
+      alt="Golden sun rising over expansive morning horizon"
+      class="w-full h-full object-cover object-bottom opacity-25 mix-blend-screen"
+      loading="lazy"
+    />
+    <!-- Sunrise Radial Glows -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-gradient-to-t from-[#F98A3D]/40 via-[#EA6B1F]/20 to-transparent blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    
+    <!-- Chapter Pill -->
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-semibold uppercase tracking-widest text-[#F98A3D] mb-8 reveal-fade">
+      <span>Chapter 02</span>
+      <span class="text-white/40">•</span>
+      <span class="text-white">The Epiphany</span>
+    </div>
+
+    <!-- Big Headline Pivot -->
+    <h2 class="text-3xl sm:text-5xl md:text-6xl font-serif font-medium leading-[1.15] tracking-tight text-white mb-8 reveal-fade">
+      The sun was shining on your roof the whole time. <br class="hidden sm:block" />
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#F98A3D] via-[#FFE4B5] to-white italic">
+        And it has never sent you a single bill.
+      </span>
+    </h2>
+
+    <!-- Plain, Neighborly Narrative -->
+    <div class="space-y-6 text-lg sm:text-xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto reveal-fade">
+      <p>
+        In Varanasi, Jaunpur, Ghazipur, and Chandauli, we get over <strong>300 days of pure, uninterrupted sunshine</strong> every single year. The exact same sun that heats up your roof and forces your fans to run on high can power your entire home.
+      </p>
+      <p>
+        Think about it: every morning at 6:00 AM, free energy lands on your concrete terrace. If you don’t catch it with solar panels, it just turns into heat in your bedroom. When you catch it, it runs your air conditioners, charges your batteries, and turns the electric meter backwards.
+      </p>
+    </div>
+
+    <!-- 3 Simple Pillars -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 text-left reveal-fade">
+      <div class="p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 hover:bg-white/15 transition-all">
+        <div class="w-12 h-12 rounded-xl bg-[#EA6B1F] flex items-center justify-center text-white mb-4 text-xl">
+          ☀️
+        </div>
+        <h3 class="text-lg font-serif font-bold text-white mb-2">Infinite & Free</h3>
+        <p class="text-sm text-white/80 leading-relaxed">
+          Coal and grid power get more expensive every quarter. Sunlight has remained 100% free for 4.5 billion years.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 hover:bg-white/15 transition-all">
+        <div class="w-12 h-12 rounded-xl bg-[#3E7CC9] flex items-center justify-center text-white mb-4 text-xl">
+          🔄
+        </div>
+        <h3 class="text-lg font-serif font-bold text-white mb-2">Net Metering Credit</h3>
+        <p class="text-sm text-white/80 leading-relaxed">
+          Produce extra power during sunny afternoons? Send it to the UP grid and earn credits against your nighttime usage.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 hover:bg-white/15 transition-all">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500 flex items-center justify-center text-white mb-4 text-xl">
+          🏛️
+        </div>
+        <h3 class="text-lg font-serif font-bold text-white mb-2">PM Surya Ghar Subsidy</h3>
+        <p class="text-sm text-white/80 leading-relaxed">
+          The central government pays up to ₹78,000 directly into your bank account within 30 days of installation.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>

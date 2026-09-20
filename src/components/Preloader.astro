@@ -1,0 +1,79 @@
+---
+// Preloader.astro - Full-screen navy overlay with dual-tone rotating ring, pulse halo, and progress bar
+---
+
+<div
+  id="site-preloader"
+  class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0F2540] text-white transition-opacity duration-500"
+  aria-hidden="true"
+>
+  <!-- Ambient background glow -->
+  <div class="absolute w-96 h-96 rounded-full bg-radial from-[#EA6B1F]/20 via-[#3E7CC9]/10 to-transparent blur-3xl animate-pulse-halo pointer-events-none"></div>
+
+  <div class="relative flex flex-col items-center">
+    <!-- Spinning dual-tone ring around segmented mark -->
+    <div class="relative w-28 h-28 flex items-center justify-center">
+      <!-- Outer rotating gradient ring -->
+      <div class="absolute inset-0 rounded-full border-2 border-transparent border-t-[#EA6B1F] border-r-[#F98A3D] border-b-[#3E7CC9] border-l-transparent animate-spin-loader"></div>
+      
+      <!-- Reverse inner ring -->
+      <div class="absolute inset-2 rounded-full border border-dashed border-white/20 animate-spin-reverse-loader"></div>
+      
+      <!-- Central Logo Mark -->
+      <div class="relative w-16 h-16 flex items-center justify-center bg-[#173257] rounded-full shadow-inner p-2">
+        <img
+          src="/logo.png"
+          alt="Wave Power Solar"
+          class="w-full h-full object-contain filter drop-shadow"
+        />
+      </div>
+    </div>
+
+    <!-- Brand name -->
+    <div class="mt-6 text-center">
+      <span class="font-serif text-xl tracking-tight text-white font-medium">Wave Power Solar</span>
+      <p class="text-xs text-[#5B6B7F] tracking-widest uppercase mt-1">Varanasi • Purvanchal</p>
+    </div>
+
+    <!-- Progress bar line -->
+    <div class="w-48 h-1 bg-white/10 rounded-full mt-6 overflow-hidden">
+      <div id="preloader-bar" class="h-full bg-gradient-to-r from-[#EA6B1F] to-[#3E7CC9] w-0 transition-all duration-300"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function dismissPreloader() {
+    const preloader = document.getElementById('site-preloader');
+    const bar = document.getElementById('preloader-bar');
+    if (bar) bar.style.width = '100%';
+    
+    setTimeout(() => {
+      if (preloader) {
+        preloader.style.opacity = '0';
+        preloader.style.pointerEvents = 'none';
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 500);
+      }
+    }, 350);
+  }
+
+  // Fast dismiss if user prefers reduced motion
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const preloader = document.getElementById('site-preloader');
+    if (preloader) preloader.style.display = 'none';
+  } else {
+    // Animate bar progressively
+    const bar = document.getElementById('preloader-bar');
+    if (bar) bar.style.width = '70%';
+
+    if (document.readyState === 'complete') {
+      dismissPreloader();
+    } else {
+      window.addEventListener('load', dismissPreloader);
+      // Failsafe timeout
+      setTimeout(dismissPreloader, 1200);
+    }
+  }
+</script>
