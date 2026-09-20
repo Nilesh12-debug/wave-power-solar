@@ -4,7 +4,7 @@
 
 <div
   id="site-preloader"
-  class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0F2540] text-white transition-opacity duration-500"
+  class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0F2540] text-white transition-opacity duration-700"
   aria-hidden="true"
 >
   <!-- Ambient background glow -->
@@ -43,37 +43,48 @@
 </div>
 
 <script>
-  function dismissPreloader() {
+  function runPreloaderSequence() {
     const preloader = document.getElementById('site-preloader');
     const bar = document.getElementById('preloader-bar');
-    if (bar) bar.style.width = '100%';
-    
+
+    if (!preloader || !bar) return;
+
+    // Respect reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      preloader.style.display = 'none';
+      return;
+    }
+
+    // Step 1: Start smooth fill
+    bar.style.transition = 'width 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+    bar.style.width = '35%';
+
     setTimeout(() => {
-      if (preloader) {
-        preloader.style.opacity = '0';
-        preloader.style.pointerEvents = 'none';
-        setTimeout(() => {
-          preloader.style.display = 'none';
-        }, 500);
-      }
-    }, 350);
+      // Step 2: Accelerate to mid-high
+      bar.style.transition = 'width 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
+      bar.style.width = '78%';
+    }, 600);
+
+    setTimeout(() => {
+      // Step 3: Complete fill
+      bar.style.transition = 'width 0.5s ease-out';
+      bar.style.width = '100%';
+    }, 1350);
+
+    setTimeout(() => {
+      // Step 4: Fade out gracefully
+      preloader.style.opacity = '0';
+      preloader.style.pointerEvents = 'none';
+      
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 700);
+    }, 1950);
   }
 
-  // Fast dismiss if user prefers reduced motion
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const preloader = document.getElementById('site-preloader');
-    if (preloader) preloader.style.display = 'none';
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', runPreloaderSequence);
   } else {
-    // Animate bar progressively
-    const bar = document.getElementById('preloader-bar');
-    if (bar) bar.style.width = '70%';
-
-    if (document.readyState === 'complete') {
-      dismissPreloader();
-    } else {
-      window.addEventListener('load', dismissPreloader);
-      // Failsafe timeout
-      setTimeout(dismissPreloader, 1200);
-    }
+    runPreloaderSequence();
   }
 </script>
