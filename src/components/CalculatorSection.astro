@@ -20,8 +20,8 @@
       </p>
     </div>
 
-    <!-- The Luxury Quotation Dashboard Card -->
-    <div class="max-w-5xl mx-auto bg-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-[#E4E2DA] card-glow reveal-fade">
+    <!-- The Luxury Quotation Dashboard Card with Spotlight & 3D Tilt -->
+    <div class="max-w-5xl mx-auto bg-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-[#E4E2DA] card-glow spotlight-card reveal-fade">
       
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
@@ -34,7 +34,7 @@
               <label for="monthly-bill-slider" class="text-xs sm:text-sm font-bold text-[#5B6B7F] uppercase tracking-wider">
                 Average Monthly Electricity Bill
               </label>
-              <span id="bill-display" class="text-2xl sm:text-3xl font-serif font-bold text-[#EA6B1F]">
+              <span id="bill-display" class="text-2xl sm:text-3xl font-serif font-bold text-[#EA6B1F] transition-transform duration-150">
                 ₹5,000 / mo
               </span>
             </div>
@@ -46,33 +46,36 @@
               max="25000"
               step="500"
               value="5000"
-              class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#EA6B1F] focus:outline-none focus:ring-2 focus:ring-[#EA6B1F]"
+              class="w-full h-3.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#EA6B1F] focus:outline-none focus:ring-2 focus:ring-[#EA6B1F] transition-all"
             />
             
-            <div class="flex justify-between text-xs text-[#5B6B7F] font-mono">
-              <span>₹1,500</span>
-              <span>₹10,000</span>
-              <span>₹25,000+</span>
+            <!-- Quick Preset Chips -->
+            <div class="flex items-center gap-2 pt-1">
+              <span class="text-[11px] text-[#5B6B7F] font-medium mr-1">Quick Select:</span>
+              <button type="button" class="calc-preset-btn px-2.5 py-1 text-xs rounded-lg bg-white border border-[#E4E2DA] hover:border-[#EA6B1F] hover:text-[#EA6B1F] font-medium transition-colors cursor-pointer" data-value="3000">₹3,000</button>
+              <button type="button" class="calc-preset-btn px-2.5 py-1 text-xs rounded-lg bg-white border border-[#E4E2DA] hover:border-[#EA6B1F] hover:text-[#EA6B1F] font-medium transition-colors cursor-pointer" data-value="6000">₹6,000</button>
+              <button type="button" class="calc-preset-btn px-2.5 py-1 text-xs rounded-lg bg-white border border-[#E4E2DA] hover:border-[#EA6B1F] hover:text-[#EA6B1F] font-medium transition-colors cursor-pointer" data-value="10000">₹10,000</button>
+              <button type="button" class="calc-preset-btn px-2.5 py-1 text-xs rounded-lg bg-white border border-[#E4E2DA] hover:border-[#EA6B1F] hover:text-[#EA6B1F] font-medium transition-colors cursor-pointer" data-value="18000">₹18,000+</button>
             </div>
           </div>
 
-          <!-- 3 Computed Metric Highlights -->
+          <!-- 3 Computed Metric Highlights with 3D Tilt & Tactile Hover -->
           <div class="grid grid-cols-3 gap-3 text-center">
-            <div class="p-4 bg-white rounded-xl border border-[#E4E2DA] shadow-sm">
+            <div class="p-4 bg-white rounded-xl border border-[#E4E2DA] shadow-sm tilt-card hover:border-[#EA6B1F]/50 transition-all cursor-default">
               <span class="text-[10px] uppercase font-bold text-[#5B6B7F] block tracking-wider">Recommended</span>
-              <span id="calc-kw" class="text-lg sm:text-xl font-serif font-bold text-[#0F2540] block mt-1">3 kW Plant</span>
+              <span id="calc-kw" class="text-lg sm:text-xl font-serif font-bold text-[#0F2540] block mt-1 transition-transform">3 kW Plant</span>
               <span class="text-[11px] text-[#5B6B7F]">~380 units/mo</span>
             </div>
 
-            <div class="p-4 bg-white rounded-xl border border-[#E4E2DA] shadow-sm">
+            <div class="p-4 bg-white rounded-xl border border-[#E4E2DA] shadow-sm tilt-card hover:border-emerald-400 transition-all cursor-default">
               <span class="text-[10px] uppercase font-bold text-[#5B6B7F] block tracking-wider">Yearly Savings</span>
-              <span id="calc-savings" class="text-lg sm:text-xl font-serif font-bold text-emerald-700 block mt-1">₹54,000 / yr</span>
+              <span id="calc-savings" class="text-lg sm:text-xl font-serif font-bold text-emerald-700 block mt-1 transition-transform">₹54,000 / yr</span>
               <span class="text-[11px] text-emerald-600 font-medium">90% reduction</span>
             </div>
 
-            <div class="p-4 bg-white rounded-xl border border-[#E4E2DA] shadow-sm">
+            <div class="p-4 bg-white rounded-xl border border-[#E4E2DA] shadow-sm tilt-card hover:border-[#EA6B1F]/50 transition-all cursor-default">
               <span class="text-[10px] uppercase font-bold text-[#5B6B7F] block tracking-wider">Govt. Subsidy</span>
-              <span id="calc-subsidy" class="text-lg sm:text-xl font-serif font-bold text-[#EA6B1F] block mt-1">₹78,000</span>
+              <span id="calc-subsidy" class="text-lg sm:text-xl font-serif font-bold text-[#EA6B1F] block mt-1 transition-transform">₹78,000</span>
               <span class="text-[11px] text-orange-600 font-medium">Direct credit</span>
             </div>
           </div>
@@ -86,7 +89,7 @@
         </div>
 
         <!-- Right Column: Lead Capture Booking Form (Col 8-12) -->
-        <div class="lg:col-span-5 p-6 bg-[#0F2540] text-white rounded-2xl shadow-xl space-y-4">
+        <div class="lg:col-span-5 p-6 sm:p-7 bg-[#0F2540] text-white rounded-2xl shadow-xl space-y-4 spotlight-card tilt-card border border-white/10">
           <div>
             <span class="text-xs uppercase font-bold tracking-wider text-[#F98A3D]">Lock In Your Price</span>
             <h3 class="text-xl font-serif font-bold text-white mt-0.5">Book Free Rooftop Audit</h3>
@@ -169,11 +172,24 @@
   const calcSubsidy = document.getElementById('calc-subsidy');
   const leadForm = document.getElementById('hero-lead-form');
   const successMsg = document.getElementById('form-success-msg');
+  const presetBtns = document.querySelectorAll('.calc-preset-btn');
+
+  function triggerPulse(el: HTMLElement) {
+    el.classList.remove('value-pulse');
+    void el.offsetWidth; // Force DOM reflow
+    el.classList.add('value-pulse');
+  }
 
   if (billSlider && billDisplay && calcKw && calcSavings && calcSubsidy) {
     function updateCalculator(val: number) {
       billDisplay.textContent = `₹${val.toLocaleString('en-IN')} / mo`;
       
+      // Dynamic slider track fill gradient
+      const min = parseFloat(billSlider.min) || 1500;
+      const max = parseFloat(billSlider.max) || 25000;
+      const pct = ((val - min) / (max - min)) * 100;
+      billSlider.style.background = `linear-gradient(to right, #EA6B1F 0%, #EA6B1F ${pct}%, #E5E7EB ${pct}%, #E5E7EB 100%)`;
+
       let kw = 2;
       let subsidy = '₹60,000';
       if (val < 2500) {
@@ -197,11 +213,35 @@
       const yearlySavings = Math.round(val * 12 * 0.90);
       calcSavings.textContent = `₹${yearlySavings.toLocaleString('en-IN')} / yr`;
       calcSubsidy.textContent = subsidy;
+
+      triggerPulse(calcKw);
+      triggerPulse(calcSavings);
+      triggerPulse(calcSubsidy);
+
+      // Update preset button active visual styling
+      presetBtns.forEach(btn => {
+        const btnVal = parseInt((btn as HTMLElement).getAttribute('data-value') || '0', 10);
+        if (Math.abs(btnVal - val) < 750) {
+          btn.classList.add('bg-[#EA6B1F]', 'text-white', 'border-[#EA6B1F]');
+          btn.classList.remove('bg-white', 'text-[#12233C]', 'border-[#E4E2DA]');
+        } else {
+          btn.classList.remove('bg-[#EA6B1F]', 'text-white', 'border-[#EA6B1F]');
+          btn.classList.add('bg-white', 'text-[#12233C]', 'border-[#E4E2DA]');
+        }
+      });
     }
 
     billSlider.addEventListener('input', (e) => {
       const val = parseInt((e.target as HTMLInputElement).value, 10);
       updateCalculator(val);
+    });
+
+    presetBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetVal = parseInt(btn.getAttribute('data-value') || '5000', 10);
+        billSlider.value = targetVal.toString();
+        updateCalculator(targetVal);
+      });
     });
 
     updateCalculator(5000);

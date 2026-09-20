@@ -3,16 +3,17 @@
 ---
 
 <section id="idea" class="relative py-24 md:py-36 text-white overflow-hidden bg-gradient-to-b from-[#0F2540] via-[#1E1B38] to-[#EA6B1F]">
-  <!-- Golden Sunrise Horizon Layer -->
-  <div class="absolute inset-0 pointer-events-none z-0">
+  <!-- Golden Sunrise Horizon Layer with Subtle Parallax -->
+  <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
     <img
       src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=80"
       alt="Golden sun rising over expansive morning horizon"
-      class="w-full h-full object-cover object-bottom opacity-25 mix-blend-screen"
+      class="w-full h-full object-cover object-bottom opacity-25 mix-blend-screen will-change-transform"
+      data-parallax-speed="0.12"
       loading="lazy"
     />
     <!-- Sunrise Radial Glows -->
-    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-gradient-to-t from-[#F98A3D]/40 via-[#EA6B1F]/20 to-transparent blur-3xl"></div>
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-gradient-to-t from-[#F98A3D]/40 via-[#EA6B1F]/20 to-transparent blur-3xl animate-pulse-halo"></div>
   </div>
 
   <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -42,10 +43,10 @@
       </p>
     </div>
 
-    <!-- 3 Simple Pillars -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 text-left reveal-fade">
-      <div class="p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 hover:bg-white/15 transition-all card-glow">
-        <div class="w-12 h-12 rounded-xl bg-[#EA6B1F] flex items-center justify-center text-white mb-4 text-xl">
+    <!-- 3 Simple Pillars with 21st.dev 3D Tilt & Spotlight Hover -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 text-left">
+      <div class="p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 hover:bg-white/15 transition-all card-glow spotlight-card tilt-card reveal-fade reveal-delay-1">
+        <div class="w-12 h-12 rounded-xl bg-[#EA6B1F] flex items-center justify-center text-white mb-4 text-xl shadow-lg shadow-[#EA6B1F]/30">
           ☀️
         </div>
         <h3 class="text-lg font-serif font-bold text-white mb-2">Infinite & Free</h3>
@@ -54,8 +55,8 @@
         </p>
       </div>
 
-      <div class="p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 hover:bg-white/15 transition-all card-glow">
-        <div class="w-12 h-12 rounded-xl bg-[#3E7CC9] flex items-center justify-center text-white mb-4 text-xl">
+      <div class="p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 hover:bg-white/15 transition-all card-glow spotlight-card tilt-card reveal-fade reveal-delay-2">
+        <div class="w-12 h-12 rounded-xl bg-[#3E7CC9] flex items-center justify-center text-white mb-4 text-xl shadow-lg shadow-[#3E7CC9]/30">
           🔄
         </div>
         <h3 class="text-lg font-serif font-bold text-white mb-2">Net Metering Credit</h3>
@@ -64,8 +65,8 @@
         </p>
       </div>
 
-      <div class="p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 hover:bg-white/15 transition-all card-glow">
-        <div class="w-12 h-12 rounded-xl bg-emerald-500 flex items-center justify-center text-white mb-4 text-xl">
+      <div class="p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 hover:bg-white/15 transition-all card-glow spotlight-card tilt-card reveal-fade reveal-delay-3">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500 flex items-center justify-center text-white mb-4 text-xl shadow-lg shadow-emerald-500/30">
           🏛️
         </div>
         <h3 class="text-lg font-serif font-bold text-white mb-2">PM Surya Ghar Subsidy</h3>

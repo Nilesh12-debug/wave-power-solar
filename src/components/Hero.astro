@@ -5,11 +5,12 @@
 <section class="relative h-screen min-h-[640px] max-h-[1080px] w-full overflow-hidden bg-[#0F2540] text-white flex items-center">
   
   <!-- Broad Full-Screen Background Image: Engineer on Right with Rooftop Solar Panels -->
-  <div class="absolute inset-0 z-0 pointer-events-none">
+  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
     <img
+      id="hero-bg-img"
       src="/hero-solar-engineer.jpg"
       alt="Wave Power Solar lead engineer standing beside rooftop solar panels at golden sunset"
-      class="w-full h-full object-cover object-[72%_center] sm:object-[78%_center] md:object-[82%_center] lg:object-right-center filter brightness-[0.98] contrast-[1.02]"
+      class="w-full h-full object-cover object-[72%_center] sm:object-[78%_center] md:object-[82%_center] lg:object-right-center filter brightness-[0.98] contrast-[1.02] transition-transform duration-100 ease-out will-change-transform"
       loading="eager"
       fetchpriority="high"
     />
@@ -25,8 +26,8 @@
       <!-- Left Column: Exclusively typography, value highlights, and action buttons -->
       <div class="lg:col-span-7 xl:col-span-6 space-y-6">
         
-        <!-- Location & Authorization Badge -->
-        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#0F2540]/80 border border-white/20 text-xs sm:text-sm text-white backdrop-blur-md shadow-lg card-glow">
+        <!-- Location & Authorization Badge with gentle levitation -->
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#0F2540]/80 border border-white/20 text-xs sm:text-sm text-white backdrop-blur-md shadow-lg card-glow animate-float">
           <span class="w-2.5 h-2.5 rounded-full bg-[#EA6B1F] animate-pulse"></span>
           <span class="font-medium">Varanasi's Leading Rooftop Solar Partner</span>
           <span class="text-white/40">•</span>
@@ -43,17 +44,17 @@
           Your power bill climbs higher every summer across Varanasi, Mirzapur, and Prayagraj. Generate your own clean power, claim up to <strong class="font-semibold text-white underline decoration-[#EA6B1F] decoration-2 underline-offset-4">₹78,000 direct PM Surya Ghar subsidy</strong>, and bring your electricity bills close to zero.
         </p>
 
-        <!-- 3 Clean Trust Value Highlights -->
+        <!-- 3 Clean Trust Value Highlights with 21st.dev 3D Tilt & Spotlight -->
         <div class="grid grid-cols-3 gap-3 sm:gap-4 max-w-lg pt-1">
-          <div class="p-3 sm:p-3.5 rounded-xl bg-[#0F2540]/60 backdrop-blur-md border border-white/15 shadow-md card-glow">
+          <div class="p-3 sm:p-3.5 rounded-xl bg-[#0F2540]/60 backdrop-blur-md border border-white/15 shadow-md card-glow spotlight-card tilt-card cursor-default">
             <div class="text-xl sm:text-2xl font-serif font-bold text-[#EA6B1F]">₹0</div>
             <div class="text-[11px] sm:text-xs text-white/80 mt-0.5">Target bill for homes</div>
           </div>
-          <div class="p-3 sm:p-3.5 rounded-xl bg-[#0F2540]/60 backdrop-blur-md border border-white/15 shadow-md card-glow">
+          <div class="p-3 sm:p-3.5 rounded-xl bg-[#0F2540]/60 backdrop-blur-md border border-white/15 shadow-md card-glow spotlight-card tilt-card cursor-default">
             <div class="text-xl sm:text-2xl font-serif font-bold text-white">₹78,000</div>
             <div class="text-[11px] sm:text-xs text-white/80 mt-0.5">Direct bank subsidy</div>
           </div>
-          <div class="p-3 sm:p-3.5 rounded-xl bg-[#0F2540]/60 backdrop-blur-md border border-white/15 shadow-md card-glow">
+          <div class="p-3 sm:p-3.5 rounded-xl bg-[#0F2540]/60 backdrop-blur-md border border-white/15 shadow-md card-glow spotlight-card tilt-card cursor-default">
             <div class="text-xl sm:text-2xl font-serif font-bold text-[#3E7CC9]">25 Yrs</div>
             <div class="text-[11px] sm:text-xs text-white/80 mt-0.5">Linear warranty</div>
           </div>

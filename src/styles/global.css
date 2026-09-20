@@ -25,6 +25,8 @@
   --ink: #12233C;
   --muted: #5B6B7F;
   --line: #E4E2DA;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
 }
 
 html {
@@ -113,24 +115,6 @@ textarea:focus-visible {
   }
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-@keyframes border-beam {
-  0% {
-    offset-distance: 0%;
-  }
-  100% {
-    offset-distance: 100%;
-  }
-}
-
 .animate-float {
   animation: float 4s ease-in-out infinite;
 }
@@ -155,10 +139,49 @@ textarea:focus-visible {
   animation: pulse-halo 2.5s ease-in-out infinite;
 }
 
-/* 21st.dev Style Interactive Card & Hover Utilities */
+/* 21st.dev Style Spotlight Card Effect with 3D Tilt */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.spotlight-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    550px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(234, 107, 31, 0.14),
+    rgba(62, 124, 201, 0.04) 40%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.spotlight-card:hover::after {
+  opacity: 1;
+}
+
+.spotlight-card:hover {
+  box-shadow: 0 24px 48px -12px rgba(15, 37, 64, 0.18), 0 0 30px -5px rgba(234, 107, 31, 0.15);
+}
+
+/* 21st.dev 3D Tilt Card Container */
+.tilt-card {
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+/* 21st.dev Style Card Glow Effect */
 .card-glow {
   position: relative;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-glow::before {
@@ -167,13 +190,13 @@ textarea:focus-visible {
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(234, 107, 31, 0.4), rgba(62, 124, 201, 0.2), transparent);
+  background: linear-gradient(135deg, rgba(234, 107, 31, 0.45), rgba(62, 124, 201, 0.3), transparent 75%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  opacity: 0.4;
-  transition: opacity 0.3s ease;
+  opacity: 0.35;
+  transition: opacity 0.35s ease;
   pointer-events: none;
 }
 
@@ -183,14 +206,14 @@ textarea:focus-visible {
 
 .card-glow:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 35px -10px rgba(15, 37, 64, 0.15), 0 0 25px -5px rgba(234, 107, 31, 0.15);
+  box-shadow: 0 22px 42px -10px rgba(15, 37, 64, 0.16), 0 0 28px -5px rgba(234, 107, 31, 0.18);
 }
 
-/* Shimmer Button Effect */
+/* 21st.dev Style Shimmer Button Effect */
 .btn-shimmer {
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-shimmer::after {
@@ -203,15 +226,24 @@ textarea:focus-visible {
   background: linear-gradient(
     60deg,
     transparent 20%,
-    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0.35) 50%,
     transparent 80%
   );
   transform: translateX(-100%);
-  transition: transform 0.75s ease-in-out;
+  transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-shimmer:hover::after {
   transform: translateX(100%);
+}
+
+.btn-shimmer:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -6px rgba(234, 107, 31, 0.42);
+}
+
+.btn-shimmer:active {
+  transform: translateY(0px) scale(0.98);
 }
 
 /* Scroll reveal utilities */
@@ -227,6 +259,37 @@ textarea:focus-visible {
   transform: translateY(0);
 }
 
+/* Stagger delay classes for reveal grids */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* Animated Rising Bar Chart for Chapter 1 */
+.bar-grow {
+  width: 0% !important;
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bar-grow.is-revealed {
+  width: var(--target-width) !important;
+}
+
+/* Number pulse on update */
+.value-pulse {
+  animation: value-flash 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes value-flash {
+  0% {
+    transform: scale(1.08);
+    color: #EA6B1F;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 /* Respect user preferences */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -240,7 +303,9 @@ textarea:focus-visible {
   .animate-pulse-halo {
     animation: none !important;
   }
-  .card-glow:hover {
+  .card-glow:hover,
+  .spotlight-card:hover,
+  .btn-shimmer:hover {
     transform: none !important;
   }
   .reveal-fade {

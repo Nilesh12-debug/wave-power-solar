@@ -15,12 +15,13 @@ const districts = [
 
 <section id="coverage" class="py-24 md:py-32 bg-[#0F2540] text-white relative overflow-hidden">
   
-  <!-- Varanasi Ganga Ghats Aerial Local Context Background -->
-  <div class="absolute inset-0 pointer-events-none z-0">
+  <!-- Varanasi Ganga Ghats Aerial Local Context Background with Subtle Parallax -->
+  <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
     <img
       src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=1600&q=80"
       alt="Aerial view of Varanasi Ganga riverfront and city expanse"
-      class="w-full h-full object-cover opacity-15 mix-blend-luminosity"
+      class="w-full h-full object-cover opacity-15 mix-blend-luminosity will-change-transform"
+      data-parallax-speed="0.1"
       loading="lazy"
     />
     <div class="absolute inset-0 bg-gradient-to-t from-[#0F2540] via-[#0F2540]/90 to-[#0F2540]"></div>
@@ -43,25 +44,25 @@ const districts = [
       </p>
     </div>
 
-    <!-- District Badges Matrix -->
+    <!-- District Badges Matrix with 21st.dev 3D Tilt & Spotlight -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-20 reveal-fade">
       {districts.map((dist) => (
-        <div class="p-5 rounded-xl bg-[#173257]/80 border border-white/10 hover:border-[#EA6B1F]/50 transition-all backdrop-blur-sm group card-glow">
+        <div class="p-5 rounded-xl bg-[#173257]/80 border border-white/10 hover:border-[#EA6B1F]/50 transition-all backdrop-blur-sm group card-glow spotlight-card tilt-card cursor-default">
           <div class="flex items-center justify-between mb-2">
             <h3 class="text-base font-bold text-white group-hover:text-[#EA6B1F] transition-colors">{dist.name}</h3>
             <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
           </div>
           <p class="text-xs text-white/70 leading-relaxed">{dist.sub}</p>
-          <div class="mt-3 text-[11px] text-[#F98A3D] font-medium flex items-center gap-1">
+          <div class="mt-3 text-[11px] text-[#F98A3D] font-medium flex items-center gap-1 group-hover:text-white transition-colors">
             <span>Free On-Site Visit Available</span>
-            <span>→</span>
+            <span class="transform group-hover:translate-x-1.5 transition-transform duration-200">→</span>
           </div>
         </div>
       ))}
     </div>
 
-    <!-- Final Call to Action Card -->
-    <div class="rounded-3xl bg-gradient-to-r from-[#EA6B1F] via-[#F98A3D] to-[#EA6B1F] p-8 sm:p-12 shadow-2xl text-white relative overflow-hidden reveal-fade">
+    <!-- Final Call to Action Card with Spotlight -->
+    <div class="rounded-3xl bg-gradient-to-r from-[#EA6B1F] via-[#F98A3D] to-[#EA6B1F] p-8 sm:p-12 shadow-2xl text-white relative overflow-hidden reveal-fade spotlight-card">
       <!-- Decorative solar SVG silhouette in background -->
       <div class="absolute -right-16 -bottom-16 w-80 h-80 opacity-15 pointer-events-none">
         <svg viewBox="0 0 200 200" fill="currentColor">

@@ -47,7 +47,7 @@
 
       <!-- Right Column: Visual Rising-Cost Chart Card -->
       <div class="lg:col-span-6 reveal-fade">
-        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-xl border border-[#E4E2DA] relative card-glow">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-xl border border-[#E4E2DA] relative card-glow spotlight-card tilt-card">
           
           <div class="flex items-center justify-between pb-6 border-b border-[#E4E2DA]">
             <div>
@@ -57,50 +57,50 @@
             <span class="text-xs text-[#5B6B7F] font-mono bg-gray-100 px-2.5 py-1 rounded">2020 – 2026</span>
           </div>
 
-          <!-- Comparative Rising Bar Chart -->
+          <!-- Comparative Rising Bar Chart with 21st.dev Animated Bar Expansion -->
           <div class="mt-8 space-y-6">
             
             <!-- 2020 -->
-            <div>
+            <div class="group">
               <div class="flex justify-between text-xs sm:text-sm font-medium mb-1.5">
                 <span class="text-[#5B6B7F]">Summer 2020</span>
                 <span class="text-[#12233C] font-semibold">₹3,200 / mo</span>
               </div>
               <div class="w-full h-4 bg-gray-100 rounded-full overflow-hidden">
-                <div class="h-full bg-blue-300 rounded-full" style="width: 35%"></div>
+                <div class="h-full bg-blue-300 rounded-full bar-grow" style="--target-width: 35%"></div>
               </div>
             </div>
 
             <!-- 2022 -->
-            <div>
+            <div class="group">
               <div class="flex justify-between text-xs sm:text-sm font-medium mb-1.5">
                 <span class="text-[#5B6B7F]">Summer 2022</span>
                 <span class="text-[#12233C] font-semibold">₹4,800 / mo</span>
               </div>
               <div class="w-full h-4 bg-gray-100 rounded-full overflow-hidden">
-                <div class="h-full bg-blue-400 rounded-full" style="width: 52%"></div>
+                <div class="h-full bg-blue-400 rounded-full bar-grow" style="--target-width: 52%"></div>
               </div>
             </div>
 
             <!-- 2024 -->
-            <div>
+            <div class="group">
               <div class="flex justify-between text-xs sm:text-sm font-medium mb-1.5">
                 <span class="text-[#5B6B7F]">Summer 2024</span>
                 <span class="text-[#12233C] font-semibold">₹6,900 / mo</span>
               </div>
               <div class="w-full h-4 bg-gray-100 rounded-full overflow-hidden">
-                <div class="h-full bg-[#EA6B1F] rounded-full" style="width: 74%"></div>
+                <div class="h-full bg-[#EA6B1F] rounded-full bar-grow" style="--target-width: 74%"></div>
               </div>
             </div>
 
             <!-- 2026 Today / Projected -->
-            <div>
+            <div class="group">
               <div class="flex justify-between text-xs sm:text-sm font-medium mb-1.5">
                 <span class="text-[#0F2540] font-bold">2026 (Now)</span>
                 <span class="text-red-600 font-bold">₹9,400+ / mo</span>
               </div>
               <div class="w-full h-4 bg-gray-100 rounded-full overflow-hidden">
-                <div class="h-full bg-red-500 rounded-full" style="width: 95%"></div>
+                <div class="h-full bg-red-500 rounded-full bar-grow shadow-md shadow-red-500/20" style="--target-width: 95%"></div>
               </div>
             </div>
 
