@@ -1,73 +1,76 @@
 ---
-// Hero.astro - Full-screen wide-angle hero with lady engineer on right, clean left typography, and luxury quotation dashboard
+// Hero.astro - Full 100vh viewport hero with left-side narrative only and unobstructed wide-angle solar engineer on right
 ---
 
-<section class="relative min-h-[92vh] lg:min-h-screen pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden bg-[#0F2540] text-white flex flex-col justify-between">
+<section class="relative h-screen min-h-[640px] max-h-[1080px] w-full overflow-hidden bg-[#0F2540] text-white flex items-center">
   
-  <!-- Full Screen Background Image: Wide Angle Lady Solar Engineer on Right with Solar Panels -->
-  <div id="hero-bg-container" class="absolute inset-0 z-0 pointer-events-none">
+  <!-- Broad Full-Screen Background Image: Engineer on Right with Rooftop Solar Panels -->
+  <div class="absolute inset-0 z-0 pointer-events-none">
     <img
-      id="hero-bg-img"
       src="/hero-solar-engineer.jpg"
-      alt="Wave Power Solar lead engineer standing on rooftop beside solar panel arrays at golden sunset"
-      class="w-full h-full object-cover object-[75%_center] sm:object-[center_top] lg:object-right-top filter brightness-[0.95] contrast-[1.02]"
+      alt="Wave Power Solar lead engineer standing beside rooftop solar panels at golden sunset"
+      class="w-full h-full object-cover object-[72%_center] sm:object-[78%_center] md:object-[82%_center] lg:object-right-center filter brightness-[0.98] contrast-[1.02]"
       loading="eager"
       fetchpriority="high"
     />
-    <!-- Directional Cinematic Vignette: Left side dark for typography, right side transparent for lady engineer -->
-    <div class="absolute inset-0 bg-gradient-to-r from-[#0F2540]/95 via-[#0F2540]/75 md:via-[#0F2540]/35 to-transparent"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-[#0F2540]/75 via-transparent to-[#0F2540]/90"></div>
+    <!-- Directional Cinematic Gradient: Left side has smooth dark scrim for text readability, right side is completely clear for the engineer -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0F2540]/95 via-[#0F2540]/75 md:via-[#0F2540]/40 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0F2540]/70 via-transparent to-[#0F2540]/90"></div>
   </div>
 
-  <!-- Hero Top Content: Narrative & Clean Typography on Left, Lady Engineer Highlighted on Right -->
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
+  <!-- Hero Content: LEFT SIDE ONLY -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-16 sm:pt-20">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
       
-      <!-- Left Column: Story Headline, Value Highlights & Direct CTA -->
-      <div class="lg:col-span-7 space-y-6 pt-4 sm:pt-8">
+      <!-- Left Column: Exclusively typography, value highlights, and action buttons -->
+      <div class="lg:col-span-7 xl:col-span-6 space-y-6">
         
         <!-- Location & Authorization Badge -->
         <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#0F2540]/80 border border-white/20 text-xs sm:text-sm text-white backdrop-blur-md shadow-lg card-glow">
           <span class="w-2.5 h-2.5 rounded-full bg-[#EA6B1F] animate-pulse"></span>
           <span class="font-medium">Varanasi's Leading Rooftop Solar Partner</span>
           <span class="text-white/40">•</span>
-          <span class="text-[#F98A3D] font-semibold">PM Surya Ghar Authorized</span>
+          <span class="text-[#F98A3D] font-semibold">PM Surya Ghar Approved</span>
         </div>
 
-        <!-- Main Narrative Headline -->
+        <!-- Main Headline -->
         <h1 class="text-3xl sm:text-5xl xl:text-6xl font-serif font-medium leading-[1.12] tracking-tight text-white drop-shadow-md">
           Stop paying for electricity when the sun shines on your roof <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#EA6B1F] via-[#F98A3D] to-amber-200 italic">every single day.</span>
         </h1>
 
-        <!-- Plain English Narrative Copy -->
-        <p class="text-base sm:text-lg text-white/90 leading-relaxed max-w-2xl font-light drop-shadow">
-          Your power bill climbs higher every summer across Varanasi and Purvanchal. Generate your own clean power, claim up to <strong class="font-semibold text-white underline decoration-[#EA6B1F] decoration-2 underline-offset-4">₹78,000 direct government subsidy</strong>, and bring your electricity bills close to zero.
+        <!-- Narrative Lead Copy -->
+        <p class="text-base sm:text-lg text-white/90 leading-relaxed max-w-xl font-light drop-shadow">
+          Your power bill climbs higher every summer across Varanasi, Mirzapur, and Prayagraj. Generate your own clean power, claim up to <strong class="font-semibold text-white underline decoration-[#EA6B1F] decoration-2 underline-offset-4">₹78,000 direct PM Surya Ghar subsidy</strong>, and bring your electricity bills close to zero.
         </p>
 
-        <!-- 3 Quick Trust Value Pills -->
-        <div class="grid grid-cols-3 gap-3 sm:gap-4 max-w-xl pt-2">
-          <div class="p-3 sm:p-4 rounded-xl bg-[#0F2540]/60 backdrop-blur-md border border-white/15 shadow-md">
+        <!-- 3 Clean Trust Value Highlights -->
+        <div class="grid grid-cols-3 gap-3 sm:gap-4 max-w-lg pt-1">
+          <div class="p-3 sm:p-3.5 rounded-xl bg-[#0F2540]/60 backdrop-blur-md border border-white/15 shadow-md card-glow">
             <div class="text-xl sm:text-2xl font-serif font-bold text-[#EA6B1F]">₹0</div>
-            <div class="text-xs text-white/80 mt-0.5">Target bill for homes</div>
+            <div class="text-[11px] sm:text-xs text-white/80 mt-0.5">Target bill for homes</div>
           </div>
-          <div class="p-3 sm:p-4 rounded-xl bg-[#0F2540]/60 backdrop-blur-md border border-white/15 shadow-md">
+          <div class="p-3 sm:p-3.5 rounded-xl bg-[#0F2540]/60 backdrop-blur-md border border-white/15 shadow-md card-glow">
             <div class="text-xl sm:text-2xl font-serif font-bold text-white">₹78,000</div>
-            <div class="text-xs text-white/80 mt-0.5">Direct PM subsidy</div>
+            <div class="text-[11px] sm:text-xs text-white/80 mt-0.5">Direct bank subsidy</div>
           </div>
-          <div class="p-3 sm:p-4 rounded-xl bg-[#0F2540]/60 backdrop-blur-md border border-white/15 shadow-md">
+          <div class="p-3 sm:p-3.5 rounded-xl bg-[#0F2540]/60 backdrop-blur-md border border-white/15 shadow-md card-glow">
             <div class="text-xl sm:text-2xl font-serif font-bold text-[#3E7CC9]">25 Yrs</div>
-            <div class="text-xs text-white/80 mt-0.5">Tier-1 panel warranty</div>
+            <div class="text-[11px] sm:text-xs text-white/80 mt-0.5">Linear warranty</div>
           </div>
         </div>
 
-        <!-- Action Links & Social Proof -->
+        <!-- Action CTAs -->
         <div class="flex flex-wrap items-center gap-4 pt-2">
           <a
-            href="#quotation-dashboard"
-            class="btn-shimmer inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm sm:text-base font-semibold text-white bg-[#EA6B1F] hover:bg-[#F98A3D] shadow-lg shadow-[#EA6B1F]/30 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
+            href="#calculator"
+            class="btn-shimmer inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm sm:text-base font-semibold text-white bg-[#EA6B1F] hover:bg-[#F98A3D] shadow-lg shadow-[#EA6B1F]/30 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 gap-2"
           >
-            Calculate Your Solar Savings ↓
+            <span>Calculate Your Savings</span>
+            <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
           </a>
+          
           <a
             href="tel:+919415012345"
             class="inline-flex items-center gap-2 px-4 py-3.5 rounded-xl text-sm font-medium text-white/90 hover:text-white bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md transition-colors"
@@ -79,6 +82,7 @@
           </a>
         </div>
 
+        <!-- Social Proof snippet -->
         <div class="flex items-center gap-3 pt-1">
           <div class="flex -space-x-2 overflow-hidden">
             <img class="inline-block h-8 w-8 rounded-full ring-2 ring-[#0F2540] object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Customer avatar" />
@@ -92,230 +96,22 @@
 
       </div>
 
-      <!-- Right Column: Dedicated breathing space showcasing the Lady Solar Engineer -->
-      <div class="lg:col-span-5 relative hidden lg:flex flex-col justify-end items-end h-[420px] pointer-events-none">
-        <!-- Floating Glass Badge Accenting the Field Engineer -->
-        <div class="pointer-events-auto animate-float self-end p-4 rounded-2xl bg-[#0F2540]/80 backdrop-blur-xl border border-white/20 text-white shadow-2xl card-glow max-w-xs transform hover:scale-105 transition-transform">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400 font-bold text-lg">
-              ⚡
-            </div>
-            <div>
-              <span class="text-xs font-bold text-white block">Varanasi Rooftop Survey</span>
-              <p class="text-[11px] text-emerald-400 font-medium">● Lead Technical Team on Site</p>
-            </div>
-          </div>
-          <div class="mt-2 pt-2 border-t border-white/10 flex justify-between items-center text-[11px] text-white/70">
-            <span>3D Shadow Simulation</span>
-            <span class="text-[#F98A3D] font-semibold">Free Audit</span>
-          </div>
-        </div>
-      </div>
+      <!-- Right Column: Completely open to showcase the broad background image and the engineer -->
+      <div class="hidden lg:block lg:col-span-5 xl:col-span-6 h-full"></div>
 
     </div>
   </div>
 
-  <!-- Quotation Dashboard: Wide, Luxury, High-Fit Interactive Experience -->
-  <div id="quotation-dashboard" class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-8">
-    <div class="bg-white text-[#12233C] rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl border border-[#E4E2DA] card-glow">
-      
-      <!-- Dashboard Top Header Bar -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-[#E4E2DA] gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-[#EA6B1F] flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-[#EA6B1F]"></span>
-            Instant Solar Quotation & Subsidy Dashboard
-          </span>
-          <h2 class="text-xl sm:text-2xl font-serif font-bold text-[#0F2540] mt-0.5">
-            Calculate Your Exact Solar Savings in 10 Seconds
-          </h2>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="px-3 py-1 bg-emerald-50 border border-emerald-200 text-emerald-800 font-semibold text-xs rounded-full">
-            ✓ PM Surya Ghar Authorized
-          </span>
-          <span class="px-3 py-1 bg-blue-50 border border-blue-200 text-blue-800 font-semibold text-xs rounded-full hidden sm:inline-block">
-            ⚡ Net Metering Included
-          </span>
-        </div>
-      </div>
-
-      <!-- Dashboard Interactive Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-6 items-center">
-        
-        <!-- Left Sub-Grid: Bill Slider (Col 1-4) -->
-        <div class="lg:col-span-4 space-y-3">
-          <div class="flex justify-between items-baseline">
-            <label for="monthly-bill-slider" class="text-xs sm:text-sm font-bold text-[#5B6B7F]">
-              Current Monthly Electricity Bill
-            </label>
-            <span id="bill-display" class="text-xl sm:text-2xl font-bold text-[#EA6B1F] font-serif">
-              ₹5,000 / mo
-            </span>
-          </div>
-          
-          <input
-            id="monthly-bill-slider"
-            type="range"
-            min="1500"
-            max="25000"
-            step="500"
-            value="5000"
-            class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#EA6B1F] focus:outline-none focus:ring-2 focus:ring-[#EA6B1F]"
-          />
-          
-          <div class="flex justify-between text-[11px] text-[#5B6B7F] font-mono">
-            <span>₹1,500</span>
-            <span>₹10,000</span>
-            <span>₹25,000+</span>
-          </div>
-          <p class="text-[11px] text-[#5B6B7F]">Drag slider to match your summer electricity bill.</p>
-        </div>
-
-        <!-- Middle Sub-Grid: Live Computed Solar Metrics (Col 5-8) -->
-        <div class="lg:col-span-4 grid grid-cols-2 gap-3 p-4 bg-[#F7F5F0] rounded-2xl border border-[#E4E2DA]">
-          <div>
-            <span class="text-[10px] uppercase font-bold tracking-wider text-[#5B6B7F] block">Recommended System</span>
-            <span id="calc-kw" class="text-lg sm:text-xl font-serif font-bold text-[#0F2540]">3 kW Plant</span>
-            <span class="text-[11px] text-[#5B6B7F] block mt-0.5">~380 units/mo power</span>
-          </div>
-          <div>
-            <span class="text-[10px] uppercase font-bold tracking-wider text-[#5B6B7F] block">Estimated Savings</span>
-            <span id="calc-savings" class="text-lg sm:text-xl font-serif font-bold text-emerald-700">₹54,000 / yr</span>
-            <span class="text-[11px] text-emerald-600 block mt-0.5">Locked for 25 yrs</span>
-          </div>
-          <div class="col-span-2 pt-2.5 border-t border-[#E4E2DA] flex items-center justify-between">
-            <span class="text-xs text-[#5B6B7F] font-medium">Govt. Direct Subsidy:</span>
-            <span id="calc-subsidy" class="font-bold text-[#EA6B1F] bg-orange-100 text-xs px-2.5 py-1 rounded-lg border border-orange-200">
-              ₹78,000 Direct Bank Credit
-            </span>
-          </div>
-        </div>
-
-        <!-- Right Sub-Grid: Direct Booking Form (Col 9-12) -->
-        <div class="lg:col-span-4">
-          <form id="hero-lead-form" class="space-y-3">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2.5">
-              <input
-                id="lead-phone"
-                type="tel"
-                required
-                pattern="[0-9]{10}"
-                placeholder="10-digit WhatsApp/Phone"
-                class="w-full px-3.5 py-2.5 rounded-xl border border-[#E4E2DA] text-sm focus:border-[#EA6B1F] focus:ring-1 focus:ring-[#EA6B1F] transition-all bg-white"
-              />
-              <select
-                id="lead-city"
-                class="w-full px-3 py-2.5 rounded-xl border border-[#E4E2DA] text-sm bg-white focus:border-[#EA6B1F] focus:ring-1 focus:ring-[#EA6B1F] transition-all"
-              >
-                <option value="Varanasi">Varanasi</option>
-                <option value="Mirzapur">Mirzapur</option>
-                <option value="Chandauli">Chandauli</option>
-                <option value="Bhadohi">Bhadohi</option>
-                <option value="Jaunpur">Jaunpur</option>
-                <option value="Ghazipur">Ghazipur</option>
-                <option value="Prayagraj">Prayagraj</option>
-                <option value="Other">Other nearby</option>
-              </select>
-            </div>
-
-            <button
-              type="submit"
-              class="btn-shimmer w-full py-3 px-4 rounded-xl text-white font-semibold text-sm sm:text-base bg-[#EA6B1F] hover:bg-[#F98A3D] shadow-lg shadow-[#EA6B1F]/30 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2"
-            >
-              <span>Book Free Rooftop Survey & Quote</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-              </svg>
-            </button>
-
-            <div id="form-success-msg" class="hidden p-2.5 bg-emerald-50 border border-emerald-200 rounded-lg text-emerald-800 text-xs text-center font-medium">
-              ✅ Thank you! Our Varanasi solar engineer will contact you shortly to schedule your free roof audit.
-            </div>
-          </form>
-        </div>
-
-      </div>
+  <!-- Bottom Scroll Down Indicator -->
+  <a
+    href="#calculator"
+    class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5 text-xs text-white/70 hover:text-white transition-colors group cursor-pointer"
+    aria-label="Scroll down to quotation calculator"
+  >
+    <span class="tracking-wider uppercase font-medium text-[10px]">Scroll to Calculate Savings</span>
+    <div class="w-6 h-9 rounded-full border-2 border-white/30 flex justify-center p-1 group-hover:border-[#EA6B1F] transition-colors">
+      <div class="w-1.5 h-2.5 bg-[#EA6B1F] rounded-full animate-bounce"></div>
     </div>
-  </div>
+  </a>
 
 </section>
-
-<script>
-  // 21st.dev Style Scroll Parallax Effect
-  const bgImg = document.getElementById('hero-bg-img');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (bgImg && !prefersReducedMotion) {
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const scrollY = window.scrollY;
-          if (scrollY < 900) {
-            bgImg.style.transform = `translateY(${scrollY * 0.12}px)`;
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }, { passive: true });
-  }
-
-  // Interactive Quote Calculator
-  const billSlider = document.getElementById('monthly-bill-slider') as HTMLInputElement | null;
-  const billDisplay = document.getElementById('bill-display');
-  const calcKw = document.getElementById('calc-kw');
-  const calcSavings = document.getElementById('calc-savings');
-  const calcSubsidy = document.getElementById('calc-subsidy');
-  const leadForm = document.getElementById('hero-lead-form');
-  const successMsg = document.getElementById('form-success-msg');
-
-  if (billSlider && billDisplay && calcKw && calcSavings && calcSubsidy) {
-    function updateCalculator(val: number) {
-      billDisplay.textContent = `₹${val.toLocaleString('en-IN')} / mo`;
-      
-      let kw = 2;
-      let subsidy = '₹60,000 Direct';
-      if (val < 2500) {
-        kw = 1;
-        subsidy = '₹30,000 Direct';
-      } else if (val <= 4500) {
-        kw = 2;
-        subsidy = '₹60,000 Direct';
-      } else if (val <= 8500) {
-        kw = 3;
-        subsidy = '₹78,000 Direct';
-      } else if (val <= 14000) {
-        kw = 5;
-        subsidy = '₹78,000 (Max Cap)';
-      } else {
-        kw = Math.min(15, Math.round(val / 2200));
-        subsidy = '₹78,000 (Max Cap)';
-      }
-
-      calcKw.textContent = `${kw} kW Plant`;
-      const yearlySavings = Math.round(val * 12 * 0.90);
-      calcSavings.textContent = `₹${yearlySavings.toLocaleString('en-IN')} / yr`;
-      calcSubsidy.textContent = subsidy;
-    }
-
-    billSlider.addEventListener('input', (e) => {
-      const val = parseInt((e.target as HTMLInputElement).value, 10);
-      updateCalculator(val);
-    });
-
-    updateCalculator(5000);
-  }
-
-  if (leadForm && successMsg) {
-    leadForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      successMsg.classList.remove('hidden');
-      (leadForm as HTMLFormElement).reset();
-      setTimeout(() => {
-        successMsg.classList.add('hidden');
-      }, 7000);
-    });
-  }
-</script>

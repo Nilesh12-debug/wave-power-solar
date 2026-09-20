@@ -1,0 +1,220 @@
+---
+// CalculatorSection.astro - Dedicated Solar Savings Estimator & Quotation Dashboard
+---
+
+<section id="calculator" class="py-20 md:py-28 bg-[#F7F5F0] text-[#12233C] relative border-b border-[#E4E2DA]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-14 reveal-fade">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100 text-xs font-bold uppercase tracking-widest text-[#EA6B1F] mb-4">
+        <span>Instant Quotation</span>
+        <span>•</span>
+        <span>PM Surya Ghar Authorized</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-medium text-[#0F2540] leading-tight">
+        Calculate your solar savings in 10 seconds.
+      </h2>
+      <p class="text-base sm:text-lg text-[#5B6B7F] mt-4 leading-relaxed font-light">
+        Move the slider to your average summer electricity bill. See what size rooftop system you need, your direct bank subsidy, and how much money stays in your pocket every single year.
+      </p>
+    </div>
+
+    <!-- The Luxury Quotation Dashboard Card -->
+    <div class="max-w-5xl mx-auto bg-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-[#E4E2DA] card-glow reveal-fade">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Left Column: Slider & Computed Savings (Col 1-7) -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Slider Box -->
+          <div class="p-6 bg-[#F7F5F0] rounded-2xl border border-[#E4E2DA] space-y-3">
+            <div class="flex justify-between items-baseline">
+              <label for="monthly-bill-slider" class="text-xs sm:text-sm font-bold text-[#5B6B7F] uppercase tracking-wider">
+                Average Monthly Electricity Bill
+              </label>
+              <span id="bill-display" class="text-2xl sm:text-3xl font-serif font-bold text-[#EA6B1F]">
+                ₹5,000 / mo
+              </span>
+            </div>
+            
+            <input
+              id="monthly-bill-slider"
+              type="range"
+              min="1500"
+              max="25000"
+              step="500"
+              value="5000"
+              class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#EA6B1F] focus:outline-none focus:ring-2 focus:ring-[#EA6B1F]"
+            />
+            
+            <div class="flex justify-between text-xs text-[#5B6B7F] font-mono">
+              <span>₹1,500</span>
+              <span>₹10,000</span>
+              <span>₹25,000+</span>
+            </div>
+          </div>
+
+          <!-- 3 Computed Metric Highlights -->
+          <div class="grid grid-cols-3 gap-3 text-center">
+            <div class="p-4 bg-white rounded-xl border border-[#E4E2DA] shadow-sm">
+              <span class="text-[10px] uppercase font-bold text-[#5B6B7F] block tracking-wider">Recommended</span>
+              <span id="calc-kw" class="text-lg sm:text-xl font-serif font-bold text-[#0F2540] block mt-1">3 kW Plant</span>
+              <span class="text-[11px] text-[#5B6B7F]">~380 units/mo</span>
+            </div>
+
+            <div class="p-4 bg-white rounded-xl border border-[#E4E2DA] shadow-sm">
+              <span class="text-[10px] uppercase font-bold text-[#5B6B7F] block tracking-wider">Yearly Savings</span>
+              <span id="calc-savings" class="text-lg sm:text-xl font-serif font-bold text-emerald-700 block mt-1">₹54,000 / yr</span>
+              <span class="text-[11px] text-emerald-600 font-medium">90% reduction</span>
+            </div>
+
+            <div class="p-4 bg-white rounded-xl border border-[#E4E2DA] shadow-sm">
+              <span class="text-[10px] uppercase font-bold text-[#5B6B7F] block tracking-wider">Govt. Subsidy</span>
+              <span id="calc-subsidy" class="text-lg sm:text-xl font-serif font-bold text-[#EA6B1F] block mt-1">₹78,000</span>
+              <span class="text-[11px] text-orange-600 font-medium">Direct credit</span>
+            </div>
+          </div>
+
+          <!-- Reassurance pill -->
+          <div class="flex items-center gap-3 p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900 font-medium">
+            <span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shrink-0">✓</span>
+            <span>Includes bi-directional UPPCL net meter liaison, Tier-1 panels & 25-year generation warranty.</span>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Lead Capture Booking Form (Col 8-12) -->
+        <div class="lg:col-span-5 p-6 bg-[#0F2540] text-white rounded-2xl shadow-xl space-y-4">
+          <div>
+            <span class="text-xs uppercase font-bold tracking-wider text-[#F98A3D]">Lock In Your Price</span>
+            <h3 class="text-xl font-serif font-bold text-white mt-0.5">Book Free Rooftop Audit</h3>
+            <p class="text-xs text-white/70 mt-1">Our engineer in Varanasi will visit with a 3D shadow scanner.</p>
+          </div>
+
+          <form id="hero-lead-form" class="space-y-3 pt-1">
+            <div>
+              <label for="lead-name" class="block text-xs font-semibold text-white/80 mb-1">Your Name</label>
+              <input
+                id="lead-name"
+                type="text"
+                required
+                placeholder="e.g. Ramesh Kumar"
+                class="w-full px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm focus:border-[#EA6B1F] focus:bg-white/15 focus:ring-1 focus:ring-[#EA6B1F] transition-all"
+              />
+            </div>
+
+            <div>
+              <label for="lead-phone" class="block text-xs font-semibold text-white/80 mb-1">WhatsApp / Phone Number</label>
+              <input
+                id="lead-phone"
+                type="tel"
+                required
+                pattern="[0-9]{10}"
+                placeholder="10-digit mobile number"
+                class="w-full px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm focus:border-[#EA6B1F] focus:bg-white/15 focus:ring-1 focus:ring-[#EA6B1F] transition-all"
+              />
+            </div>
+
+            <div>
+              <label for="lead-city" class="block text-xs font-semibold text-white/80 mb-1">District / City</label>
+              <select
+                id="lead-city"
+                class="w-full px-3 py-2.5 rounded-xl bg-[#173257] border border-white/20 text-white text-sm focus:border-[#EA6B1F] focus:ring-1 focus:ring-[#EA6B1F] transition-all"
+              >
+                <option value="Varanasi">Varanasi</option>
+                <option value="Mirzapur">Mirzapur</option>
+                <option value="Chandauli">Chandauli</option>
+                <option value="Bhadohi">Bhadohi</option>
+                <option value="Jaunpur">Jaunpur</option>
+                <option value="Ghazipur">Ghazipur</option>
+                <option value="Prayagraj">Prayagraj</option>
+                <option value="Other">Other nearby area</option>
+              </select>
+            </div>
+
+            <button
+              type="submit"
+              class="btn-shimmer w-full py-3.5 px-4 rounded-xl text-white font-semibold text-sm sm:text-base bg-[#EA6B1F] hover:bg-[#F98A3D] shadow-lg shadow-[#EA6B1F]/30 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 mt-2"
+            >
+              <span>Schedule Free Roof Visit</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </button>
+
+            <div id="form-success-msg" class="hidden p-3 bg-emerald-500/20 border border-emerald-500/40 rounded-lg text-emerald-300 text-xs text-center font-medium">
+              ✅ Thank you! Our Varanasi solar engineer will contact you shortly to schedule your free roof audit.
+            </div>
+
+            <p class="text-[11px] text-center text-white/60 pt-1">
+              🔒 No spam. Local team responds within 2 hours.
+            </p>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const billSlider = document.getElementById('monthly-bill-slider') as HTMLInputElement | null;
+  const billDisplay = document.getElementById('bill-display');
+  const calcKw = document.getElementById('calc-kw');
+  const calcSavings = document.getElementById('calc-savings');
+  const calcSubsidy = document.getElementById('calc-subsidy');
+  const leadForm = document.getElementById('hero-lead-form');
+  const successMsg = document.getElementById('form-success-msg');
+
+  if (billSlider && billDisplay && calcKw && calcSavings && calcSubsidy) {
+    function updateCalculator(val: number) {
+      billDisplay.textContent = `₹${val.toLocaleString('en-IN')} / mo`;
+      
+      let kw = 2;
+      let subsidy = '₹60,000';
+      if (val < 2500) {
+        kw = 1;
+        subsidy = '₹30,000';
+      } else if (val <= 4500) {
+        kw = 2;
+        subsidy = '₹60,000';
+      } else if (val <= 8500) {
+        kw = 3;
+        subsidy = '₹78,000';
+      } else if (val <= 14000) {
+        kw = 5;
+        subsidy = '₹78,000 (Cap)';
+      } else {
+        kw = Math.min(15, Math.round(val / 2200));
+        subsidy = '₹78,000 (Cap)';
+      }
+
+      calcKw.textContent = `${kw} kW Plant`;
+      const yearlySavings = Math.round(val * 12 * 0.90);
+      calcSavings.textContent = `₹${yearlySavings.toLocaleString('en-IN')} / yr`;
+      calcSubsidy.textContent = subsidy;
+    }
+
+    billSlider.addEventListener('input', (e) => {
+      const val = parseInt((e.target as HTMLInputElement).value, 10);
+      updateCalculator(val);
+    });
+
+    updateCalculator(5000);
+  }
+
+  if (leadForm && successMsg) {
+    leadForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      successMsg.classList.remove('hidden');
+      (leadForm as HTMLFormElement).reset();
+      setTimeout(() => {
+        successMsg.classList.add('hidden');
+      }, 7000);
+    });
+  }
+</script>

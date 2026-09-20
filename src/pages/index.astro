@@ -2,6 +2,7 @@
 // index.astro - Wave Power Solar Storytelling Landing Page
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
+import CalculatorSection from '../components/CalculatorSection.astro';
 import ChapterProblem from '../components/ChapterProblem.astro';
 import ChapterIdea from '../components/ChapterIdea.astro';
 import ChapterProcess from '../components/ChapterProcess.astro';
@@ -14,8 +15,11 @@ import ChapterClosing from '../components/ChapterClosing.astro';
   title="Wave Power Solar | Varanasi Rooftop Solar & PM Surya Ghar Subsidy"
   description="Stop paying soaring electricity bills in Varanasi, Mirzapur & Prayagraj. Get direct ₹78,000 PM Surya Ghar subsidy, Tier-1 solar panels, and 25-year performance warranty with Wave Power Solar."
 >
-  <!-- Hero Section with Interactive Floating Quote Card -->
+  <!-- Hero Section: Pure 100vh First Screen (Broad Background + Left-Side Content Only) -->
   <Hero />
+
+  <!-- Quotation Form & Solar Calculator: Appears seamlessly when scrolling down -->
+  <CalculatorSection />
 
   <!-- Chapter 1: The Problem (Rising bills every summer) -->
   <ChapterProblem />
