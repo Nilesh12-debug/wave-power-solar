@@ -246,11 +246,95 @@ textarea:focus-visible {
   transform: translateY(0px) scale(0.98);
 }
 
+/* Continuous Shimmer for Mobile Viewports without hover */
+.btn-shimmer-continuous {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-shimmer-continuous::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 75%
+  );
+  animation: shimmer-continuous 3.2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes shimmer-continuous {
+  0% {
+    transform: translateX(-100%);
+  }
+  38%, 100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Preloader Sweeping Light Streak */
+@keyframes shimmer-sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(250%);
+  }
+}
+
+.animate-shimmer-sweep {
+  animation: shimmer-sweep 1.4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile Breathing Pulse Glow */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 4px 18px -2px rgba(234, 107, 31, 0.12), 0 0 0 1px rgba(234, 107, 31, 0.15);
+  }
+  50% {
+    box-shadow: 0 8px 30px 2px rgba(234, 107, 31, 0.32), 0 0 0 1px rgba(234, 107, 31, 0.35);
+  }
+}
+
+.card-ambient-pulse {
+  animation: pulse-glow 3.5s ease-in-out infinite;
+}
+
+/* Solar Energy Flow Animation */
+@keyframes energy-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.animate-energy-flow {
+  background-size: 200% 100%;
+  animation: energy-flow 2.2s linear infinite;
+}
+
+/* Mobile Touch Press Micro-Feedback */
+.touch-press {
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s ease;
+}
+
+.touch-press:active {
+  transform: scale(0.96) !important;
+}
+
 /* Scroll reveal utilities */
 .reveal-fade {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(24px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -259,11 +343,35 @@ textarea:focus-visible {
   transform: translateY(0);
 }
 
+.reveal-slide-up {
+  opacity: 0;
+  transform: translateY(32px) scale(0.98);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-slide-up.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-scale.is-revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
 /* Stagger delay classes for reveal grids */
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
 
 /* Animated Rising Bar Chart for Chapter 1 */
 .bar-grow {
@@ -282,7 +390,7 @@ textarea:focus-visible {
 
 @keyframes value-flash {
   0% {
-    transform: scale(1.08);
+    transform: scale(1.12);
     color: #EA6B1F;
   }
   100% {
@@ -298,17 +406,13 @@ textarea:focus-visible {
   .animate-float,
   .animate-float-delayed,
   .animate-spin-slow,
-  .animate-spin-loader,
-  .animate-spin-reverse-loader,
-  .animate-pulse-halo {
+  .btn-shimmer-continuous::after,
+  .animate-energy-flow {
     animation: none !important;
   }
-  .card-glow:hover,
-  .spotlight-card:hover,
-  .btn-shimmer:hover {
-    transform: none !important;
-  }
-  .reveal-fade {
+  .reveal-fade,
+  .reveal-slide-up,
+  .reveal-scale {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;

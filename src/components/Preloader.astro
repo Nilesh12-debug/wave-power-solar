@@ -1,90 +1,155 @@
 ---
-// Preloader.astro - Full-screen navy overlay with dual-tone rotating ring, pulse halo, and progress bar
+// Preloader.astro - Full-screen branded solar intro with dual-tone rotating ring, live percent counter, and scroll lock
 ---
 
 <div
   id="site-preloader"
-  class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0F2540] text-white transition-opacity duration-700"
+  class="fixed inset-0 z-[99999] h-[100dvh] w-full flex flex-col items-center justify-center bg-[#0F2540] text-white transition-all duration-700 select-none touch-none"
   aria-hidden="true"
 >
-  <!-- Ambient background glow -->
-  <div class="absolute w-96 h-96 rounded-full bg-radial from-[#EA6B1F]/20 via-[#3E7CC9]/10 to-transparent blur-3xl animate-pulse-halo pointer-events-none"></div>
+  <!-- Ambient Solar Background Corona Glow -->
+  <div class="absolute w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-radial from-[#EA6B1F]/30 via-[#3E7CC9]/15 to-transparent blur-3xl animate-pulse-halo pointer-events-none"></div>
 
-  <div class="relative flex flex-col items-center">
-    <!-- Spinning dual-tone ring around segmented mark -->
-    <div class="relative w-28 h-28 flex items-center justify-center">
-      <!-- Outer rotating gradient ring -->
-      <div class="absolute inset-0 rounded-full border-2 border-transparent border-t-[#EA6B1F] border-r-[#F98A3D] border-b-[#3E7CC9] border-l-transparent animate-spin-loader"></div>
+  <div id="preloader-content" class="relative flex flex-col items-center px-4 max-w-xs sm:max-w-sm w-full transition-transform duration-700 ease-out">
+    
+    <!-- Spinning Dual-Tone Solar Corona Rings around Central Emblem -->
+    <div class="relative w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center mb-6">
+      <!-- Outer rotating gradient ring with glow -->
+      <div class="absolute inset-0 rounded-full border-2 border-transparent border-t-[#EA6B1F] border-r-[#F98A3D] border-b-[#3E7CC9] border-l-transparent animate-spin-loader shadow-[0_0_24px_rgba(234,107,31,0.35)]"></div>
       
-      <!-- Reverse inner ring -->
-      <div class="absolute inset-2 rounded-full border border-dashed border-white/20 animate-spin-reverse-loader"></div>
+      <!-- Reverse inner dashed ring -->
+      <div class="absolute inset-2 sm:inset-2.5 rounded-full border border-dashed border-white/30 animate-spin-reverse-loader"></div>
       
+      <!-- Pulsing Solar Core Glow -->
+      <div class="absolute inset-4 rounded-full bg-gradient-to-tr from-[#EA6B1F]/20 to-[#3E7CC9]/20 blur-md animate-pulse"></div>
+
       <!-- Central Logo Mark -->
-      <div class="relative w-16 h-16 flex items-center justify-center bg-[#173257] rounded-full shadow-inner p-2">
+      <div class="relative w-16 h-16 sm:w-18 sm:h-18 flex items-center justify-center bg-[#173257] rounded-full shadow-2xl p-2.5 border border-white/15">
         <img
           src="/logo.png"
-          alt="Wave Power Solar"
-          class="w-full h-full object-contain filter drop-shadow"
+          alt="Wave Power Solar Logo"
+          class="w-full h-full object-contain filter drop-shadow animate-pulse-halo"
+          loading="eager"
         />
       </div>
     </div>
 
-    <!-- Brand name -->
-    <div class="mt-6 text-center">
-      <span class="font-serif text-xl tracking-tight text-white font-medium">Wave Power Solar</span>
-      <p class="text-xs text-[#5B6B7F] tracking-widest uppercase mt-1">Varanasi • Purvanchal</p>
+    <!-- Brand Identity -->
+    <div class="text-center mb-6">
+      <span class="font-serif text-2xl sm:text-3xl tracking-tight text-white font-medium block">
+        Wave Power Solar
+      </span>
+      <p class="text-xs text-white/70 tracking-widest uppercase mt-1 flex items-center justify-center gap-1.5 font-medium">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#EA6B1F] animate-ping inline-block"></span>
+        Varanasi • Purvanchal
+      </p>
     </div>
 
-    <!-- Progress bar line -->
-    <div class="w-48 h-1 bg-white/10 rounded-full mt-6 overflow-hidden">
-      <div id="preloader-bar" class="h-full bg-gradient-to-r from-[#EA6B1F] to-[#3E7CC9] w-0 transition-all duration-300"></div>
+    <!-- Progress Container with Live Ticker -->
+    <div class="w-full max-w-[260px] sm:max-w-[280px]">
+      <div class="flex items-center justify-between text-xs text-white/75 font-mono mb-2 px-0.5">
+        <span id="preloader-status" class="text-[11px] text-[#F98A3D] font-sans font-medium truncate max-w-[190px]">
+          Initializing solar grid...
+        </span>
+        <span id="preloader-percent" class="text-xs text-white font-bold tabular-nums">0%</span>
+      </div>
+
+      <!-- Progress Track -->
+      <div class="w-full h-2 bg-white/10 rounded-full p-0.5 overflow-hidden border border-white/15 shadow-inner">
+        <div
+          id="preloader-bar"
+          class="h-full bg-gradient-to-r from-[#EA6B1F] via-[#F98A3D] to-[#3E7CC9] rounded-full w-0 transition-all duration-100 ease-out relative overflow-hidden"
+        >
+          <!-- Moving light sweep highlight -->
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent animate-shimmer-sweep"></div>
+        </div>
+      </div>
     </div>
+
+    <p class="text-[10px] text-white/50 tracking-wider uppercase mt-4 text-center">
+      PM Surya Ghar Muft Bijli Yojana Partner
+    </p>
   </div>
 </div>
 
 <script>
-  function runPreloaderSequence() {
+  function initPreloader() {
     const preloader = document.getElementById('site-preloader');
+    const content = document.getElementById('preloader-content');
     const bar = document.getElementById('preloader-bar');
+    const pctEl = document.getElementById('preloader-percent');
+    const statusEl = document.getElementById('preloader-status');
 
-    if (!preloader || !bar) return;
+    if (!preloader || !bar || !pctEl) return;
 
-    // Respect reduced motion
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      preloader.style.display = 'none';
-      return;
+    // Lock scrolling on mobile and desktop while preloading
+    document.body.style.overflow = 'hidden';
+    document.body.style.touchAction = 'none';
+
+    function unlockScroll() {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
     }
 
-    // Step 1: Start smooth fill
-    bar.style.transition = 'width 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-    bar.style.width = '35%';
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const duration = prefersReducedMotion ? 600 : 1600; // ms
+    const startTime = performance.now();
 
-    setTimeout(() => {
-      // Step 2: Accelerate to mid-high
-      bar.style.transition = 'width 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
-      bar.style.width = '78%';
-    }, 600);
+    const statuses = [
+      { at: 0, text: 'Initializing solar grid...' },
+      { at: 35, text: 'Scanning Varanasi sunlight...' },
+      { at: 70, text: 'Calculating ₹78,000 subsidy...' },
+      { at: 92, text: 'Powering your roof...' }
+    ];
 
-    setTimeout(() => {
-      // Step 3: Complete fill
-      bar.style.transition = 'width 0.5s ease-out';
-      bar.style.width = '100%';
-    }, 1350);
+    function updateProgress(now: number) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Smooth cubic ease-out
+      const ease = 1 - Math.pow(1 - progress, 2.5);
+      const currentPct = Math.round(ease * 100);
 
-    setTimeout(() => {
-      // Step 4: Fade out gracefully
-      preloader.style.opacity = '0';
-      preloader.style.pointerEvents = 'none';
-      
-      setTimeout(() => {
-        preloader.style.display = 'none';
-      }, 700);
-    }, 1950);
+      bar.style.width = `${currentPct}%`;
+      pctEl.textContent = `${currentPct}%`;
+
+      if (statusEl) {
+        for (let i = statuses.length - 1; i >= 0; i--) {
+          if (currentPct >= statuses[i].at) {
+            statusEl.textContent = statuses[i].text;
+            break;
+          }
+        }
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(updateProgress);
+      } else {
+        // Complete state
+        bar.style.width = '100%';
+        pctEl.textContent = '100%';
+        if (statusEl) statusEl.textContent = 'System Ready!';
+
+        setTimeout(() => {
+          if (content) {
+            content.style.transform = 'scale(0.96)';
+          }
+          preloader.style.opacity = '0';
+          preloader.style.pointerEvents = 'none';
+          unlockScroll();
+
+          setTimeout(() => {
+            preloader.style.display = 'none';
+          }, 700);
+        }, 220);
+      }
+    }
+
+    requestAnimationFrame(updateProgress);
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', runPreloaderSequence);
+    document.addEventListener('DOMContentLoaded', initPreloader);
   } else {
-    runPreloaderSequence();
+    initPreloader();
   }
 </script>
