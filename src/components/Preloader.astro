@@ -91,23 +91,31 @@
       document.body.style.touchAction = '';
     }
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const duration = prefersReducedMotion ? 600 : 1600; // ms
+    // Cinematic pacing: ~2.8s total so mobile visitors can comfortably read the status and see the solar rings
+    const isMobile = window.innerWidth < 768;
+    const duration = isMobile ? 2800 : 2500; // ms
     const startTime = performance.now();
 
     const statuses = [
       { at: 0, text: 'Initializing solar grid...' },
-      { at: 35, text: 'Scanning Varanasi sunlight...' },
-      { at: 70, text: 'Calculating ₹78,000 subsidy...' },
-      { at: 92, text: 'Powering your roof...' }
+      { at: 28, text: 'Scanning Varanasi sunlight...' },
+      { at: 62, text: 'Calculating ₹78,000 subsidy...' },
+      { at: 86, text: 'Powering your roof...' }
     ];
 
     function updateProgress(now: number) {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // Smooth cubic ease-out
-      const ease = 1 - Math.pow(1 - progress, 2.5);
-      const currentPct = Math.round(ease * 100);
+      
+      // Smooth natural easeInOut / cubic progression
+      // Starts gently, moves smoothly, then settles into 100%
+      let currentPct: number;
+      if (progress < 0.5) {
+        currentPct = Math.round(4 * progress * progress * progress * 50);
+      } else {
+        currentPct = Math.round((1 - Math.pow(-2 * progress + 2, 3) / 2) * 100);
+      }
+      currentPct = Math.min(100, Math.max(0, currentPct));
 
       bar.style.width = `${currentPct}%`;
       pctEl.textContent = `${currentPct}%`;
@@ -124,10 +132,14 @@
       if (progress < 1) {
         requestAnimationFrame(updateProgress);
       } else {
-        // Complete state
+        // Complete state - hold for 450ms so user comfortably sees "100% System Ready!"
         bar.style.width = '100%';
         pctEl.textContent = '100%';
-        if (statusEl) statusEl.textContent = 'System Ready!';
+        if (statusEl) {
+          statusEl.textContent = '✅ System Ready!';
+          statusEl.classList.remove('text-[#F98A3D]');
+          statusEl.classList.add('text-emerald-400');
+        }
 
         setTimeout(() => {
           if (content) {
@@ -140,7 +152,7 @@
           setTimeout(() => {
             preloader.style.display = 'none';
           }, 700);
-        }, 220);
+        }, 450);
       }
     }
 
